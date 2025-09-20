@@ -3,69 +3,33 @@
 <html lang="id">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SIMBA — Sistem Informasi MSDS Bahan Kimia</title>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <style>
 :root{
-  --accent:#0073aa;   /* warna utama */
-  --muted:#6b7280;
-  --bg:#f6f9fb;       /* background */
+  --accent:#0073aa;
+  --bg:#f6f9fb;
   --card:#fff;
   --radius:12px;
-  --gap:18px;
 }
-*{box-sizing:border-box}
-body{font-family:Inter, "Segoe UI", Roboto, Arial; margin:0; background:var(--bg); color:#0f172a; line-height:1.4}
-.container{max-width:1100px; margin:28px auto; padding:0 18px;}
-.header{display:flex;align-items:center;gap:12px;padding:12px 0}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.logo svg{height:36px;width:auto}
-.brand h1{font-size:20px;margin:0;letter-spacing:1px}
-nav{margin-left:auto}
-nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600}
-nav a.active{color:var(--accent)}
-.hero{background:#fff; padding:22px;border-radius:var(--radius); box-shadow:0 6px 18px rgba(14,30,37,0.06); margin-bottom:20px}
-.hero h2{margin:0 0 8px 0}
-.search-wrap{display:flex;gap:10px;align-items:center;margin-top:12px}
-.search-box{flex:1;display:flex;align-items:center;background:#fff;border-radius:999px;padding:12px 14px;border:1px solid #e6eef6}
-.search-box input{border:0;outline:none;flex:1;font-size:15px}
-.select-inline, .btn-primary{padding:10px 14px;border-radius:10px;border:0;font-weight:700}
-.btn-primary{background:var(--accent);color:white}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:18px}
-.card{background:var(--card);border-radius:14px;padding:14px;box-shadow:0 6px 18px rgba(2,6,23,0.04);border:1px solid rgba(2,6,23,0.03)}
-.card h3{margin:0 0 6px 0;font-size:16px;color:#062c4d}
-.card .formula{display:inline-block;background:#eaf6ff;color:#0461a8;padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px;margin-bottom:10px}
-.card .tags{margin-top:8px}
-.badge{display:inline-block;background:#eef2f9;color:#1a3f5c;padding:6px 10px;border-radius:999px;font-size:12px;margin-right:6px}
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(3,12,28,0.5);z-index:9999}
-.modal .box{width:95%;max-width:980px;background:white;border-radius:12px;padding:12px;max-height:90vh;overflow:auto}
-.modal .box header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.modal iframe{width:100%;height:65vh;border:0;border-radius:8px}
-.small{font-size:13px;color:var(--muted)}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.controls{display:flex;gap:10px;align-items:center}
-@media (max-width:640px){
-  .header{padding:8px}
-  nav a{margin-left:10px;font-size:14px}
-  .hero{padding:14px}
-  .modal iframe{height:55vh}
-}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);}
+.container{max-width:1000px;margin:auto;padding:20px;}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+.logo img{height:48px;width:auto;}
+nav a{margin-left:16px;text-decoration:none;color:#333;font-weight:bold;}
+nav a.active{color:var(--accent);}
+section{margin-top:20px;}
+.card{background:var(--card);padding:16px;border-radius:var(--radius);margin-bottom:12px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
 </style>
 </head>
 <body>
 <div class="container">
   <!-- HEADER -->
-  <header class="header">
-    <a class="brand" href="#home" id="nav-home">
-      <div class="logo" aria-hidden>
-        <!-- Logo: SIMBA dengan huruf I diganti Erlenmeyer -->
-       <div class="logo">
-  <img src="assets/img/LogoSimba.PNG" alt="Logo SIMBA" style="height:40px;">
-</div>
-      </div>
-      <h1>SIMBA</h1>
-    </a>
+  <header>
+    <div class="logo">
+      <!-- Ganti LogoSimba.png sesuai nama file logomu -->
+      <img src="assets/img/LogoSimba.png" alt="Logo SIMBA">
+    </div>
     <nav>
       <a href="#home" class="navlink" data-target="home">Beranda</a>
       <a href="#msds" class="navlink" data-target="msds">MSDS</a>
@@ -77,244 +41,68 @@ nav a.active{color:var(--accent)}
 
   <!-- HOME -->
 
-  <section id="home" class="hero">
-    <h2>Selamat datang di SIMBA</h2>
-    <p class="small">Sistem Informasi MSDS Bahan Kimia — cari informasi MSDS, piktogram, dan APD dengan cepat & aman.</p>
-    <div class="search-wrap" style="margin-top:14px">
-      <div class="search-box">
-        <input id="searchInput" type="search" placeholder="Cari nama bahan kimia / rumus / pengujian..." />
-      </div>
-      <div class="controls">
-        <select id="sortSelect" class="select-inline">
-          <option value="name">Urut: Nama (A–Z)</option>
-          <option value="test">Urut: Pengujian</option>
-        </select>
-        <button id="goMsds" class="btn-primary">Cari</button>
-      </div>
-    </div>
-    <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap;">
-      <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-        <h4>Piktogram GHS of the Day</h4>
-        <div id="piktogramOfDay" class="small">Memuat...</div>
-      </div>
-      <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-        <h4>Tips K3 of the Day</h4>
-        <div id="tipsOfDay" class="small">Memuat...</div>
-      </div>
+  <section id="home">
+    <div class="card">
+      <h2>Selamat Datang di SIMBA</h2>
+      <p>Sistem Informasi MSDS Bahan Kimia. Gunakan menu di atas untuk melihat data.</p>
     </div>
   </section>
 
   <!-- MSDS -->
 
-  <section id="msds" style="display:none; margin-top:18px">
-    <h2>Database MSDS</h2>
-    <p class="small">Klik kartu untuk melihat MSDS lengkap.</p>
-    <div class="row" style="margin-top:12px;">
-      <label class="small">Filter Pengujian:</label>
-      <select id="filterTest" class="select-inline"><option value="">Semua</option></select>
-      <label class="small">Urut:</label>
-      <select id="sortSelect2" class="select-inline">
-        <option value="name">Nama (A–Z)</option>
-        <option value="test">Pengujian</option>
-      </select>
+  <section id="msds" style="display:none;">
+    <div class="card">
+      <h2>Database MSDS</h2>
+      <p>Tempat menampilkan daftar bahan kimia dan file MSDS PDF.</p>
     </div>
-    <div id="msdsGrid" class="grid" style="margin-top:14px"></div>
   </section>
 
   <!-- PENGUJIAN -->
 
-  <section id="pengujian" style="display:none;margin-top:18px">
-    <h2>Pengujian</h2>
-    <p class="small">Pilih kategori pengujian untuk melihat bahan yang digunakan.</p>
-    <div id="testsList" class="grid" style="margin-top:12px"></div>
+  <section id="pengujian" style="display:none;">
+    <div class="card">
+      <h2>Pengujian</h2>
+      <p>Daftar metode pengujian bahan kimia.</p>
+    </div>
   </section>
 
   <!-- PIKTOGRAM -->
 
-  <section id="ghs" style="display:none;margin-top:18px">
-    <h2>Piktogram GHS</h2>
-    <div id="ghsList" style="margin-top:12px" class="grid"></div>
+  <section id="ghs" style="display:none;">
+    <div class="card">
+      <h2>Piktogram GHS</h2>
+      <p>Kumpulan piktogram bahaya kimia.</p>
+    </div>
   </section>
 
   <!-- APD -->
 
-  <section id="apd" style="display:none;margin-top:18px">
-    <h2>APD Wajib di Laboratorium</h2>
-    <div id="apdList" style="margin-top:12px" class="grid"></div>
+  <section id="apd" style="display:none;">
+    <div class="card">
+      <h2>APD</h2>
+      <p>Daftar Alat Pelindung Diri yang wajib di laboratorium.</p>
+    </div>
   </section>
 </div>
 
-<!-- Modal -->
-
-<div id="modal" class="modal">
-  <div class="box">
-    <header>
-      <strong id="modalTitle">Nama Bahan</strong>
-      <button id="closeModal" class="btn-primary" style="background:#e05454">Tutup</button>
-    </header>
-    <div id="modalMeta" class="small"></div>
-    <div id="modalContent" style="margin-top:10px">
-      <iframe id="pdfViewer" src=""></iframe>
-      <div style="margin-top:8px">
-        <a id="downloadLink" class="btn-primary" href="#" target="_blank">Download PDF</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-// ====== DATA ======
-const MSDS_DATA = [
-  {
-    id:"naoh",
-    name:"Natrium Hidroksida (Sodium Hydroxide)",
-    formula:"NaOH",
-    testing:["COD"],
-    pdf:"assets/pdf/NaOH.PDF",
-    piktogram:"🧴 Korosif",
-    apd:["Sarung tangan nitril","Goggles","Jas lab"]
-  },
-  {
-    id:"h2so4",
-    name:"Asam Sulfat (Sulfuric Acid)",
-    formula:"H2SO4",
-    testing:["COD","Nitrit (NO2-N)"],
-    pdf:"assets/pdf/H2SO4.PDF",
-    piktogram:"Korosif",
-    apd:["Goggles","Apron","Sarung tangan tahan asam"]
-  },
-  {
-    id:"c2h5oh",
-    name:"Etanol (Ethanol)",
-    formula:"C2H5OH",
-    testing:["Kadar Alkohol"],
-    pdf:"assets/pdf/Ethanol.PDF",
-    piktogram:"🔥 Mudah Terbakar",
-    apd:["Goggles","Sarung tangan nitril","Jas lab"]
-  }
-];
-
-const PIKTOGRAMS = [
-  {icon:"💥", name:"Eksplosif", slang:"Waspada! Bisa meletus kalau salah nangani."},
-  {icon:"🧪", name:"Korosif", slang:"Hati-hati, cairannya bisa ngikis kulit nih."},
-  {icon:"☠️", name:"Racun", slang:"Jangan dihirup, jauhi dari mulut."}
-];
-
-const TIPS = [
-  "Jangan pipet pake mulut, selalu pakai pipet bulb.",
-  "Goggles on, drama off.",
-  "Label bahan itu penting, jangan tebak-tebakan.",
-  "Kalau tumpah, lap dulu lalu laporkan."
-];
-
-// ====== RENDERING ======
-const msdsGrid=document.getElementById('msdsGrid');
-const testsList=document.getElementById('testsList');
-const ghsList=document.getElementById('ghsList');
-const apdList=document.getElementById('apdList');
-const filterTest=document.getElementById('filterTest');
-const searchInput=document.getElementById('searchInput');
-const sortSelect2=document.getElementById('sortSelect2');
-const modal=document.getElementById('modal');
-const modalTitle=document.getElementById('modalTitle');
-const pdfViewer=document.getElementById('pdfViewer');
-const downloadLink=document.getElementById('downloadLink');
-const goMsds=document.getElementById('goMsds');
-const piktogramOfDay=document.getElementById('piktogramOfDay');
-const tipsOfDay=document.getElementById('tipsOfDay');
-
-let DATA=MSDS_DATA.slice();
-
-function getAllTests(d){const s=new Set();d.forEach(x=>x.testing.forEach(t=>s.add(t)));return [...s].sort();}
-function renderGrid(d){
-  msdsGrid.innerHTML='';
-  if(!d.length){msdsGrid.innerHTML='<div class="small">Tidak ada bahan.</div>';return;}
-  d.forEach(it=>{
-    const div=document.createElement('div');
-    div.className='card';
-    div.innerHTML=`
-      <h3>${it.name}</h3>
-      <div class="formula">${it.formula}</div>
-      <div class="tags">${it.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
-      <button class="btn-primary" data-id="${it.id}">Lihat MSDS</button>
-    `;
-    msdsGrid.appendChild(div);
-  });
-}
-function renderTests(tests){
-  testsList.innerHTML='';
-  tests.forEach(t=>{
-    const c=document.createElement('div');
-    c.className='card';
-    c.innerHTML=`<h3>${t}</h3><div class="small">Klik untuk melihat bahan terkait</div>`;
-    c.addEventListener('click',()=>{showSection('msds');filterTest.value=t;applyFilters();});
-    testsList.appendChild(c);
-  });
-}
-function renderGHS(){
-  ghsList.innerHTML='';
-  PIKTOGRAMS.forEach(p=>{
-    const c=document.createElement('div');c.className='card';
-    c.innerHTML=`<h3>${p.icon} ${p.name}</h3><div class="small">${p.slang}</div>`;
-    ghsList.appendChild(c);
-  });
-}
-function renderAPD(){
-  const apds=[
-    {title:"Kacamata Safety",desc:"Melindungi mata dari percikan."},
-    {title:"Sarung Tangan Nitril",desc:"Melindungi tangan dari bahan kimia."},
-    {title:"Jas Lab",desc:"Mencegah kontaminasi pakaian."}
-  ];
-  apdList.innerHTML='';
-  apds.forEach(a=>{
-    const c=document.createElement('div');c.className='card';
-    c.innerHTML=`<h3>${a.title}</h3><div class="small">${a.desc}</div>`;
-    apdList.appendChild(c);
-  });
-}
-function fillTestFilter(){
-  const all=getAllTests(DATA);
-  filterTest.innerHTML='<option value="">Semua</option>';
-  all.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;filterTest.appendChild(o);});
-}
-function applyFilters(){
-  let list=DATA.slice();
-  const q=searchInput.value.trim().toLowerCase();
-  if(q){list=list.filter(i=>i.name.toLowerCase().includes(q)||i.formula.toLowerCase().includes(q)||i.testing.join(' ').toLowerCase().includes(q));}
-  const f=filterTest.value;if(f){list=list.filter(i=>i.testing.includes(f));}
-  list.sort((a,b)=>a.name.localeCompare(b.name));
-  renderGrid(list);
-}
-document.addEventListener('click',e=>{
-  const b=e.target.closest('button[data-id]');
-  if(b){const id=b.dataset.id;const item=DATA.find(x=>x.id===id);if(item)openModal(item);}
-});
-function openModal(it){
-  modalTitle.textContent=it.name;
-  document.getElementById('modalMeta').innerHTML=`
-    <div><strong>Rumus:</strong> ${it.formula}</div>
-    <div><strong>Pengujian:</strong> ${it.testing.join(', ')}</div>
-    <div><strong>Piktogram:</strong> ${it.piktogram}</div>
-    <div><strong>APD:</strong> ${it.apd.join(', ')}</div>`;
-  pdfViewer.src=it.pdf;downloadLink.href=it.pdf;
-  modal.style.display='flex';
-}
-document.getElementById('closeModal').onclick=()=>modal.style.display='none';
-modal.addEventListener('click',e=>{if(e.target===modal)modal.style.display='none';});
-
-// ====== NAVIGATION ======
 function showSection(id){
   ['home','msds','pengujian','ghs','apd'].forEach(s=>{
-    const el=document.getElementById(s);
-    if(el)el.style.display=(s===id)?'block':'none';
+    document.getElementById(s).style.display = (s===id)?'block':'none';
   });
-  document.querySelectorAll('nav a.navlink').forEach(a=>{
+  document.querySelectorAll('.navlink').forEach(a=>{
     a.classList.toggle('active',a.dataset.target===id);
   });
-  window.scrollTo({top:0,behavior:'smooth'});
 }
 document.querySelectorAll('.navlink').forEach(a=>{
   a.addEventListener('click',e=>{
     e.preventDefault();
     showSection(a.dataset.target);
   });
+});
+// default tampil beranda
+showSection('home');
+</script>
+
+</body>
+</html>
