@@ -1,17 +1,16 @@
 <!doctype html>
+
 <html lang="id">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>SIMBA — Sistem Informasi MSDS Bahan Kimia</title>
-<!-- Simple favicon -->
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <style>
-/* ====== Basic CSS (responsive + modern card design) ====== */
 :root{
-  --accent:#0073aa;
+  --accent:#0073aa;   /* warna utama */
   --muted:#6b7280;
-  --bg:#f6f9fb;
+  --bg:#f6f9fb;       /* background */
   --card:#fff;
   --radius:12px;
   --gap:18px;
@@ -19,45 +18,33 @@
 *{box-sizing:border-box}
 body{font-family:Inter, "Segoe UI", Roboto, Arial; margin:0; background:var(--bg); color:#0f172a; line-height:1.4}
 .container{max-width:1100px; margin:28px auto; padding:0 18px;}
-/* Header */
 .header{display:flex;align-items:center;gap:12px;padding:12px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.logo{display:flex;align-items:center;gap:8px}
 .logo svg{height:36px;width:auto}
 .brand h1{font-size:20px;margin:0;letter-spacing:1px}
 nav{margin-left:auto}
 nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600}
 nav a.active{color:var(--accent)}
-
-/* Search big */
-.hero{background:linear-gradient(180deg,#fff,#fbfdff); padding:22px;border-radius:var(--radius); box-shadow:0 6px 18px rgba(14,30,37,0.06); margin-bottom:20px}
+.hero{background:#fff; padding:22px;border-radius:var(--radius); box-shadow:0 6px 18px rgba(14,30,37,0.06); margin-bottom:20px}
 .hero h2{margin:0 0 8px 0}
 .search-wrap{display:flex;gap:10px;align-items:center;margin-top:12px}
 .search-box{flex:1;display:flex;align-items:center;background:#fff;border-radius:999px;padding:12px 14px;border:1px solid #e6eef6}
 .search-box input{border:0;outline:none;flex:1;font-size:15px}
 .select-inline, .btn-primary{padding:10px 14px;border-radius:10px;border:0;font-weight:700}
 .btn-primary{background:var(--accent);color:white}
-
-/* Grid cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:18px}
 .card{background:var(--card);border-radius:14px;padding:14px;box-shadow:0 6px 18px rgba(2,6,23,0.04);border:1px solid rgba(2,6,23,0.03)}
 .card h3{margin:0 0 6px 0;font-size:16px;color:#062c4d}
 .card .formula{display:inline-block;background:#eaf6ff;color:#0461a8;padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px;margin-bottom:10px}
 .card .tags{margin-top:8px}
 .badge{display:inline-block;background:#eef2f9;color:#1a3f5c;padding:6px 10px;border-radius:999px;font-size:12px;margin-right:6px}
-
-/* Modal */
 .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(3,12,28,0.5);z-index:9999}
 .modal .box{width:95%;max-width:980px;background:white;border-radius:12px;padding:12px;max-height:90vh;overflow:auto}
 .modal .box header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .modal iframe{width:100%;height:65vh;border:0;border-radius:8px}
-
-/* small helpers */
 .small{font-size:13px;color:var(--muted)}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .controls{display:flex;gap:10px;align-items:center}
-
-/* responsive */
 @media (max-width:640px){
   .header{padding:8px}
   nav a{margin-left:10px;font-size:14px}
@@ -72,14 +59,12 @@ nav a.active{color:var(--accent)}
   <header class="header">
     <a class="brand" href="#home" id="nav-home">
       <div class="logo" aria-hidden>
-        <!-- Logo: SIMBA with I replaced by erlenmeyer SVG -->
-        <svg viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SIMBA logo">
+        <!-- Logo: SIMBA dengan huruf I diganti Erlenmeyer -->
+        <svg viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" stroke="none" font-family="sans-serif" font-weight="700">
             <text x="0" y="24" font-size="22" fill="#062c4d">S</text>
-            <!-- ERLENMEYER as letter I -->
             <g transform="translate(18,4)">
               <path d="M11 0 L1 0 L6 12 L1 34 L21 34 L16 12 L21 0 Z" fill="#e6f2ff" stroke="#0b4d8a"/>
-              <!-- bubbles -->
               <circle cx="9" cy="11" r="1.6" fill="#0b4d8a"/>
               <circle cx="12" cy="7" r="1.2" fill="#0b4d8a"/>
             </g>
@@ -89,7 +74,6 @@ nav a.active{color:var(--accent)}
       </div>
       <h1>SIMBA</h1>
     </a>
-
     <nav>
       <a href="#home" class="navlink" data-target="home">Beranda</a>
       <a href="#msds" class="navlink" data-target="msds">MSDS</a>
@@ -99,14 +83,14 @@ nav a.active{color:var(--accent)}
     </nav>
   </header>
 
-  <!-- ======= HOME ======= -->
+  <!-- HOME -->
+
   <section id="home" class="hero">
     <h2>Selamat datang di SIMBA</h2>
     <p class="small">Sistem Informasi MSDS Bahan Kimia — cari informasi MSDS, piktogram, dan APD dengan cepat & aman.</p>
-
     <div class="search-wrap" style="margin-top:14px">
       <div class="search-box">
-        <input id="searchInput" type="search" placeholder="Cari nama bahan kimia / rumus / pengujian..." aria-label="search"/>
+        <input id="searchInput" type="search" placeholder="Cari nama bahan kimia / rumus / pengujian..." />
       </div>
       <div class="controls">
         <select id="sortSelect" class="select-inline">
@@ -116,7 +100,6 @@ nav a.active{color:var(--accent)}
         <button id="goMsds" class="btn-primary">Cari</button>
       </div>
     </div>
-
     <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap;">
       <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
         <h4>Piktogram GHS of the Day</h4>
@@ -129,59 +112,57 @@ nav a.active{color:var(--accent)}
     </div>
   </section>
 
-  <!-- ======= MSDS (cards) ======= -->
+  <!-- MSDS -->
+
   <section id="msds" style="display:none; margin-top:18px">
     <h2>Database MSDS</h2>
-    <p class="small">Klik kartu untuk melihat MSDS lengkap (buka & download PDF).</p>
-
-    <!-- filters row -->
+    <p class="small">Klik kartu untuk melihat MSDS lengkap.</p>
     <div class="row" style="margin-top:12px;">
       <label class="small">Filter Pengujian:</label>
-      <select id="filterTest" class="select-inline">
-        <option value="">Semua</option>
-      </select>
+      <select id="filterTest" class="select-inline"><option value="">Semua</option></select>
       <label class="small">Urut:</label>
       <select id="sortSelect2" class="select-inline">
         <option value="name">Nama (A–Z)</option>
         <option value="test">Pengujian</option>
       </select>
     </div>
-
     <div id="msdsGrid" class="grid" style="margin-top:14px"></div>
   </section>
 
-  <!-- ======= PENGUJIAN ======= -->
+  <!-- PENGUJIAN -->
+
   <section id="pengujian" style="display:none;margin-top:18px">
     <h2>Pengujian</h2>
     <p class="small">Pilih kategori pengujian untuk melihat bahan yang digunakan.</p>
     <div id="testsList" class="grid" style="margin-top:12px"></div>
   </section>
 
-  <!-- ======= PIKTOGRAM ======= -->
+  <!-- PIKTOGRAM -->
+
   <section id="ghs" style="display:none;margin-top:18px">
     <h2>Piktogram GHS</h2>
-    <p class="small">Penjelasan piktogram GHS dengan bahasa yang menarik.</p>
     <div id="ghsList" style="margin-top:12px" class="grid"></div>
   </section>
 
-  <!-- ======= APD ======= -->
+  <!-- APD -->
+
   <section id="apd" style="display:none;margin-top:18px">
     <h2>APD Wajib di Laboratorium</h2>
-    <p class="small">Daftar Alat Pelindung Diri dan kapan harus digunakan.</p>
     <div id="apdList" style="margin-top:12px" class="grid"></div>
   </section>
 </div>
 
-<!-- Modal detail -->
+<!-- Modal -->
+
 <div id="modal" class="modal">
   <div class="box">
     <header>
       <strong id="modalTitle">Nama Bahan</strong>
-      <div><button id="closeModal" class="btn-primary" style="background:#e05454">Tutup</button></div>
+      <button id="closeModal" class="btn-primary" style="background:#e05454">Tutup</button>
     </header>
     <div id="modalMeta" class="small"></div>
     <div id="modalContent" style="margin-top:10px">
-      <iframe id="pdfViewer" src="" aria-label="MSDS viewer"></iframe>
+      <iframe id="pdfViewer" src=""></iframe>
       <div style="margin-top:8px">
         <a id="downloadLink" class="btn-primary" href="#" target="_blank">Download PDF</a>
       </div>
@@ -190,262 +171,158 @@ nav a.active{color:var(--accent)}
 </div>
 
 <script>
-/* ====== Data: jika ingin, kamu dapat memindah ini ke file data/msds.json dan fetch() ====== */
-/* Contoh data minimal, ganti / tambahkan sesuai file Excel kamu. "pdf" is relative path under assets/pdf/ */
+// ====== DATA ======
 const MSDS_DATA = [
   {
-    "id":"naoh",
-    "name":"Natrium Hidroksida (Sodium Hydroxide)",
-    "formula":"NaOH",
-    "testing":["COD"],
-    "pdf":"assets/pdf/NaOH.PDF",
-    "piktogram":"🧴 Korosif",
-    "apd":["Sarung tangan nitril","Goggles","Jas lab"]
+    id:"naoh",
+    name:"Natrium Hidroksida (Sodium Hydroxide)",
+    formula:"NaOH",
+    testing:["COD"],
+    pdf:"assets/pdf/NaOH.PDF",
+    piktogram:"🧴 Korosif",
+    apd:["Sarung tangan nitril","Goggles","Jas lab"]
   },
   {
-    "id":"h2so4",
-    "name":"Asam Sulfat (Sulfuric Acid)",
-    "formula":"H2SO4",
-    "testing":["COD","Nitrit (NO2-N)"],
-    "pdf":"assets/pdf/H2SO4.PDF",
-    "piktogram":"Korosif",
-    "apd":["Goggles","Apron","Sarung tangan tahan asam"]
+    id:"h2so4",
+    name:"Asam Sulfat (Sulfuric Acid)",
+    formula:"H2SO4",
+    testing:["COD","Nitrit (NO2-N)"],
+    pdf:"assets/pdf/H2SO4.PDF",
+    piktogram:"Korosif",
+    apd:["Goggles","Apron","Sarung tangan tahan asam"]
   },
   {
-    "id":"hgso4",
-    "name":"Merkuri(II) sulfat (Mercuric sulfate)",
-    "formula":"HgSO4",
-    "testing":["COD"],
-    "pdf":"assets/pdf/HgSO4.PDF",
-    "piktogram":"Berbahaya",
-    "apd":["Goggles","Sarung tangan nitril"]
+    id:"c2h5oh",
+    name:"Etanol (Ethanol)",
+    formula:"C2H5OH",
+    testing:["Kadar Alkohol"],
+    pdf:"assets/pdf/Ethanol.PDF",
+    piktogram:"🔥 Mudah Terbakar",
+    apd:["Goggles","Sarung tangan nitril","Jas lab"]
   }
 ];
 
-/* Piktogram list & 'bahasa gaul' descriptions untuk of the day */
 const PIKTOGRAMS = [
-  {id:"explosive", icon:"💥", name:"Eksplosif", slang:"Waspada bro! Bisa meletus kalau salah nangani."},
-  {id:"corrosive", icon:"🧪", name:"Korosif", slang:"Hati-hati, cairannya bisa ngikis bahan & kulit nih."},
-  {id:"toxic", icon:"☠️", name:"Racun", slang:"Jangan dimakan, jangan dihirup, mending jauh-jauh aja."}
+  {icon:"💥", name:"Eksplosif", slang:"Waspada! Bisa meletus kalau salah nangani."},
+  {icon:"🧪", name:"Korosif", slang:"Hati-hati, cairannya bisa ngikis kulit nih."},
+  {icon:"☠️", name:"Racun", slang:"Jangan dihirup, jauhi dari mulut."}
 ];
 
-/* Tips K3 (bahasa santai/gaul) */
 const TIPS = [
-  "Jangan pipet pake mulut, bro — selalu pakai pipet bulb.",
-  "Goggles on, drama off — pake kacamata safety kalo kerja sama bahan cair.",
-  "Label bahan itu penting, jangan nebak-nebak.",
-  "Kalau tumpah, lap dulu pake pad yang sesuai dan laporkan."
+  "Jangan pipet pake mulut, selalu pakai pipet bulb.",
+  "Goggles on, drama off.",
+  "Label bahan itu penting, jangan tebak-tebakan.",
+  "Kalau tumpah, lap dulu lalu laporkan."
 ];
 
-/* ====== App code (rendering + events) ====== */
-const msdsGrid = document.getElementById('msdsGrid');
-const testsList = document.getElementById('testsList');
-const ghsList = document.getElementById('ghsList');
-const apdList = document.getElementById('apdList');
-const filterTest = document.getElementById('filterTest');
-const searchInput = document.getElementById('searchInput');
-const sortSelect = document.getElementById('sortSelect');
-const sortSelect2 = document.getElementById('sortSelect2');
-const modal = document.getElementById('modal');
-const modalTitle = document.getElementById('modalTitle');
-const pdfViewer = document.getElementById('pdfViewer');
-const downloadLink = document.getElementById('downloadLink');
-const goMsds = document.getElementById('goMsds');
-const piktogramOfDay = document.getElementById('piktogramOfDay');
-const tipsOfDay = document.getElementById('tipsOfDay');
+// ====== RENDERING ======
+const msdsGrid=document.getElementById('msdsGrid');
+const testsList=document.getElementById('testsList');
+const ghsList=document.getElementById('ghsList');
+const apdList=document.getElementById('apdList');
+const filterTest=document.getElementById('filterTest');
+const searchInput=document.getElementById('searchInput');
+const sortSelect2=document.getElementById('sortSelect2');
+const modal=document.getElementById('modal');
+const modalTitle=document.getElementById('modalTitle');
+const pdfViewer=document.getElementById('pdfViewer');
+const downloadLink=document.getElementById('downloadLink');
+const goMsds=document.getElementById('goMsds');
+const piktogramOfDay=document.getElementById('piktogramOfDay');
+const tipsOfDay=document.getElementById('tipsOfDay');
 
-let DATA = MSDS_DATA.slice(); // if you fetch external JSON, assign it here
+let DATA=MSDS_DATA.slice();
 
-/* utility: unique testing values */
-function getAllTests(data){
-  const s = new Set();
-  data.forEach(d=>d.testing.forEach(t=>s.add(t)));
-  return Array.from(s).sort();
-}
-
-/* render cards */
-function renderGrid(data){
-  msdsGrid.innerHTML = '';
-  if(!data.length){
-    msdsGrid.innerHTML = '<div class="small">Tidak ada bahan.</div>';
-    return;
-  }
-  data.forEach(item=>{
-    const div = document.createElement('div');
-    div.className = 'card msds-card';
-    div.setAttribute('data-id', item.id);
-    div.innerHTML = `
-      <h3>${item.name}</h3>
-      <div class="small subtitle">(${item.formula || '-'})</div>
-      <div class="formula">${item.formula||''}</div>
-      <div class="tags">${item.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
-      <div style="margin-top:10px"><button class="btn-primary" data-id="${item.id}">Lihat MSDS</button></div>
+function getAllTests(d){const s=new Set();d.forEach(x=>x.testing.forEach(t=>s.add(t)));return [...s].sort();}
+function renderGrid(d){
+  msdsGrid.innerHTML='';
+  if(!d.length){msdsGrid.innerHTML='<div class="small">Tidak ada bahan.</div>';return;}
+  d.forEach(it=>{
+    const div=document.createElement('div');
+    div.className='card';
+    div.innerHTML=`
+      <h3>${it.name}</h3>
+      <div class="formula">${it.formula}</div>
+      <div class="tags">${it.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
+      <button class="btn-primary" data-id="${it.id}">Lihat MSDS</button>
     `;
     msdsGrid.appendChild(div);
   });
 }
-/* render tests list as clickable cards */
 function renderTests(tests){
   testsList.innerHTML='';
   tests.forEach(t=>{
-    const c=document.createElement('div'); c.className='card';
+    const c=document.createElement('div');
+    c.className='card';
     c.innerHTML=`<h3>${t}</h3><div class="small">Klik untuk melihat bahan terkait</div>`;
-    c.addEventListener('click', ()=> {
-      showSection('msds');
-      filterTest.value = t;
-      applyFilters();
-    });
+    c.addEventListener('click',()=>{showSection('msds');filterTest.value=t;applyFilters();});
     testsList.appendChild(c);
   });
 }
-/* render GHS list (static with descriptions) */
 function renderGHS(){
   ghsList.innerHTML='';
   PIKTOGRAMS.forEach(p=>{
-    const c=document.createElement('div'); c.className='card';
+    const c=document.createElement('div');c.className='card';
     c.innerHTML=`<h3>${p.icon} ${p.name}</h3><div class="small">${p.slang}</div>`;
     ghsList.appendChild(c);
   });
 }
-/* render APD list (example) */
 function renderAPD(){
-  const apds = [
-    {title:"Kacamata Safety", desc:"Untuk melindungi mata dari percikan kimia."},
-    {title:"Sarung Tangan Nitril", desc:"Bahan kimia tertentu tidak boleh sentuh langsung."},
-    {title:"Jas Laboratorium", desc:"Mencegah kontaminasi pakaian."},
-    {title:"Respirator", desc:"Gunakan bila uap/partikel berbahaya."}
+  const apds=[
+    {title:"Kacamata Safety",desc:"Melindungi mata dari percikan."},
+    {title:"Sarung Tangan Nitril",desc:"Melindungi tangan dari bahan kimia."},
+    {title:"Jas Lab",desc:"Mencegah kontaminasi pakaian."}
   ];
   apdList.innerHTML='';
   apds.forEach(a=>{
-    const c=document.createElement('div'); c.className='card';
+    const c=document.createElement('div');c.className='card';
     c.innerHTML=`<h3>${a.title}</h3><div class="small">${a.desc}</div>`;
     apdList.appendChild(c);
   });
 }
-
-/* fill filter dropdown */
 function fillTestFilter(){
-  const all = getAllTests(DATA);
-  filterTest.innerHTML = '<option value="">Semua</option>';
-  all.forEach(t=>{
-    const opt = document.createElement('option'); opt.value=t; opt.textContent=t;
-    filterTest.appendChild(opt);
-  });
+  const all=getAllTests(DATA);
+  filterTest.innerHTML='<option value="">Semua</option>';
+  all.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;filterTest.appendChild(o);});
 }
-
-/* search + filter + sort pipeline */
 function applyFilters(){
-  let list = DATA.slice();
-  const q = searchInput.value.trim().toLowerCase();
-  if(q){
-    list = list.filter(item=>{
-      return (item.name && item.name.toLowerCase().includes(q)) ||
-             (item.formula && item.formula.toLowerCase().includes(q)) ||
-             (item.testing && item.testing.join(' ').toLowerCase().includes(q));
-    });
-  }
-  const f = filterTest.value;
-  if(f){
-    list = list.filter(item=> item.testing.includes(f) );
-  }
-  const sortVal = (sortSelect2 && sortSelect2.value) || (sortSelect && sortSelect.value) || 'name';
-  if(sortVal === 'name'){
-    list.sort((a,b)=> a.name.localeCompare(b.name));
-  } else {
-    list.sort((a,b)=> (a.testing[0]||'').localeCompare(b.testing[0]||''));
-  }
+  let list=DATA.slice();
+  const q=searchInput.value.trim().toLowerCase();
+  if(q){list=list.filter(i=>i.name.toLowerCase().includes(q)||i.formula.toLowerCase().includes(q)||i.testing.join(' ').toLowerCase().includes(q));}
+  const f=filterTest.value;if(f){list=list.filter(i=>i.testing.includes(f));}
+  list.sort((a,b)=>a.name.localeCompare(b.name));
   renderGrid(list);
 }
-
-/* handle clicks on MSDS buttons (open modal) */
-document.addEventListener('click', function(e){
-  const btn = e.target.closest('button[data-id]');
-  if(btn){
-    const id = btn.getAttribute('data-id');
-    const item = DATA.find(d=>d.id===id);
-    if(item){
-      openModal(item);
-    }
-  }
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-id]');
+  if(b){const id=b.dataset.id;const item=DATA.find(x=>x.id===id);if(item)openModal(item);}
 });
-
-/* modal open */
-function openModal(item){
-  modalTitle.textContent = item.name;
-  const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
-  <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
-  <div><strong>Piktogram:</strong> ${item.piktogram||'-'}</div>
-  <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>`;
-  document.getElementById('modalMeta').innerHTML = meta;
-  pdfViewer.src = item.pdf; // must be path to pdf in repo
-  downloadLink.href = item.pdf;
-  modal.style.display = 'flex';
+function openModal(it){
+  modalTitle.textContent=it.name;
+  document.getElementById('modalMeta').innerHTML=`
+    <div><strong>Rumus:</strong> ${it.formula}</div>
+    <div><strong>Pengujian:</strong> ${it.testing.join(', ')}</div>
+    <div><strong>Piktogram:</strong> ${it.piktogram}</div>
+    <div><strong>APD:</strong> ${it.apd.join(', ')}</div>`;
+  pdfViewer.src=it.pdf;downloadLink.href=it.pdf;
+  modal.style.display='flex';
 }
+document.getElementById('closeModal').onclick=()=>modal.style.display='none';
+modal.addEventListener('click',e=>{if(e.target===modal)modal.style.display='none';});
 
-/* close modal */
-document.getElementById('closeModal').addEventListener('click', ()=> modal.style.display='none');
-modal.addEventListener('click', (ev)=>{ if(ev.target === modal) modal.style.display='none' });
-
-/* Nav / routing (simple) */
+// ====== NAVIGATION ======
 function showSection(id){
   ['home','msds','pengujian','ghs','apd'].forEach(s=>{
-    const el = document.getElementById(s);
-    if(el) el.style.display = (s===id)?'block':'none';
+    const el=document.getElementById(s);
+    if(el)el.style.display=(s===id)?'block':'none';
   });
-  // highlight menu
   document.querySelectorAll('nav a.navlink').forEach(a=>{
-    a.classList.toggle('active', a.getAttribute('data-target')===id);
+    a.classList.toggle('active',a.dataset.target===id);
   });
-  // scroll to top a bit
-  window.scrollTo({top:0, behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
-/* search button on home goes to msds with query */
-goMsds.addEventListener('click', ()=>{
-  showSection('msds');
-  applyFilters();
-});
-
-/* wire controls */
-searchInput.addEventListener('input', applyFilters);
-sortSelect2.addEventListener('change', applyFilters);
-filterTest.addEventListener('change', applyFilters);
-
-/* Piktogram / Tips of the day (daily rotating by date) */
-function dailyIndex(length){
-  const d = new Date();
-  const days = Math.floor(d/ (1000*60*60*24) );
-  return days % length;
-}
-function renderPiktogramAndTips(){
-  const pi = dailyIndex(PIKTOGRAMS.length);
-  const ti = dailyIndex(TIPS.length);
-  const p = PIKTOGRAMS[pi];
-  piktogramOfDay.innerHTML = `<strong>${p.icon} ${p.name}</strong><div class="small">${p.slang}</div>`;
-  tipsOfDay.textContent = TIPS[ti];
-}
-
-/* init app */
-function init(){
-  // if you want remote JSON, replace with fetch('data/msds.json').then(r=>r.json()).then(d=>{DATA=d; ...})
-  renderGrid(DATA);
-  const tests=getAllTests(DATA);
-  renderTests(tests);
-  renderGHS();
-  renderAPD();
-  fillTestFilter();
-  renderPiktogramAndTips();
-  showSection('home');
-}
-init();
-
-/* optional: if you host JSON externally (e.g. data/msds.json), uncomment and use below:
-fetch('data/msds.json').then(r=>r.json()).then(j=>{
-  DATA=j;
-  init();
-});
-*/
-
-</script>
-</body>
-</html>
+document.querySelectorAll('.navlink').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    showSection(a.dataset.target);
+  });
