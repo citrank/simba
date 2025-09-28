@@ -24,6 +24,7 @@ body{font-family:Inter, "Segoe UI", Roboto, Arial; margin:0; background:var(--bg
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .logo{display:flex;align-items:center;gap:8px}
 .logo svg{height:36px;width:auto}
+.logo img{height:36px;width:auto;display:block}
 .brand h1{font-size:20px;margin:0;letter-spacing:1px}
 nav{margin-left:auto}
 nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600}
@@ -71,24 +72,10 @@ nav a.active{color:var(--accent)}
   <!-- HEADER -->
   <header class="header">
     <a class="brand" href="#home" id="nav-home">
-      <div class="logo" aria-hidden>
-        <!-- Logo: SIMBA with I replaced by erlenmeyer SVG -->
-        <svg viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SIMBA logo">
-          <g fill="none" stroke="none" font-family="sans-serif" font-weight="700">
-            <text x="0" y="24" font-size="22" fill="#062c4d">S</text>
-            <!-- ERLENMEYER as letter I -->
-            <g transform="translate(18,4)">
-              <path d="M11 0 L1 0 L6 12 L1 34 L21 34 L16 12 L21 0 Z" fill="#e6f2ff" stroke="#0b4d8a"/>
-              <!-- bubbles -->
-              <circle cx="9" cy="11" r="1.6" fill="#0b4d8a"/>
-              <circle cx="12" cy="7" r="1.2" fill="#0b4d8a"/>
-            </g>
-            <text x="40" y="24" font-size="22" fill="#062c4d">MBA</text>
-          </g>
-        </svg>
-      </div>
-      <h1>SIMBA</h1>
-    </a>
+  <div class="logo" aria-hidden>
+        <img src="assets/gambar/LogoSImba.png" alt="Logo SIMBA" id="png-logo">
+  </div>
+</a>
 
     <nav>
   <a href="#home" class="navlink active" data-target="home">Beranda</a>
