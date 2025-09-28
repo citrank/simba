@@ -285,6 +285,15 @@ const TIPS = [
   "Safety Googles itu bukan untuk gaya-gayaan. Pakai saat menangani bahan kimia dengan potensi cipratan, partikel berterbangan dan yang menghasilkan uap."
 ];
 
+/* Data APD */
+const APD_DATA = [
+  {title:"Kacamata Safety", desc:"Ini 'kacamata super' buat di lab. Melindungi mata dari percikan bahan kimia, debu, atau benda tajam. Wajib dipakai, karena mata kamu cuma ada sepasang!", imagePath:"assets/apd/goggles.png"},
+    {title:"Sarung Tangan Nitril", desc:"Bahan kimia tertentu tidak boleh sentuh langsung. Selalu gunakan sarung tangan ya saat melakukan pengujian", imagePath:"assets/apd/gloves.png"},
+    {title:"Jas Laboratorium", desc:"Jas lab ini bukan buat gaya-gayaan, tapi sebagai 'tameng' pertama buat badan dan pakaianmu dari tumpahan atau percikan bahan kimia. Anggap aja ini jubah superhero-mu di lab.", imagePath:"assets/apd/jaslab.png"},
+    {title:"Respirator", desc:"Kalau kamu kerja dengan gas, uap, debu atau bahan kimia berbahaya, ini penyelamatmu. Respirator menyaring udara yang kamu hirup, jadi paru-parumu tetap aman dan sehat.", imagePath:"assets/apd/resp.png"},
+    {title:"Sepatu Safety", desc:"sepatu tertutup wajib dipakai untuk melindungi kaki dari kecelakaan dan tumpahan bahan kimia berbahaya, seperti tumpahan cairan, benda jatuh, atau pecahan kaca.", imagePath:"assets/apd/sepatu.png"}
+  ];
+
 /* ====== App code (rendering + events) ====== */
 const msdsGrid = document.getElementById('msdsGrid');
 const testsList = document.getElementById('testsList');
@@ -370,18 +379,22 @@ function renderGHS(){
 }
 /* render APD list (example) */
 function renderAPD(){
-  const apds = [
-    {title:"Kacamata Safety", desc:"Untuk melindungi mata dari percikan kimia."},
-    {title:"Sarung Tangan Nitril", desc:"Bahan kimia tertentu tidak boleh sentuh langsung."},
-    {title:"Jas Laboratorium", desc:"Mencegah kontaminasi pakaian."},
-    {title:"Respirator", desc:"Gunakan bila uap/partikel berbahaya."}
-  ];
-  apdList.innerHTML='';
-  apds.forEach(a=>{
-    const c=document.createElement('div'); c.className='card';
-    c.innerHTML=`<h3>${a.title}</h3><div class="small">${a.desc}</div>`;
-    apdList.appendChild(c);
-  });
+ apdList.innerHTML='';
+  APD_DATA.forEach(a=>{
+    const c=document.createElement('div'); c.className='card';
+    c.innerHTML=`
+      <div style="text-align:center; margin-bottom: 10px;">
+          <img 
+              src="${a.imagePath}" 
+              alt="Gambar ${a.title}" 
+              style="height: 70px; width: 70px; object-fit: contain; margin-bottom: 8px;"
+          >
+          <h3 style="font-size: 16px; margin: 0 0 5px 0;">${a.title}</h3>
+      </div>
+            <div class="small">${a.desc}</div>
+    `;
+    apdList.appendChild(c);
+  });
 }
 
 /* fill filter dropdown */
