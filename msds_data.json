@@ -1,0 +1,20 @@
+[
+  {
+    "Nama": "Asam Sulfat (Sulfuric Acid)",
+    "Formula": "H2SO4",
+    "Pengujian": "COD",
+    "GHS": "corrosive",
+    "APD": "Safety Goggles, Chemical Resistant Gloves, Lab Coat, Respirator",
+    "Deskripsi": "Asam sulfat adalah asam mineral kuat yang bersifat korosif.",
+    "PDF": ""
+  },
+  {
+    "Nama": "Kalium dikromat (Potassium dichromate)",
+    "Formula": "K2Cr2O7",
+    "Pengujian": "COD",
+    "GHS": "toxic,oxidizer",
+    "APD": "Safety Goggles, Chemical Resistant Gloves, Lab Coat",
+    "Deskripsi": "Kalium dikromat bersifat oksidator kuat dan karsinogen.",
+    "PDF": ""
+  }
+]
