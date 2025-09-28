@@ -213,9 +213,11 @@ const MSDS_DATA = [
 
 /* Piktogram list & 'bahasa gaul' descriptions untuk of the day */
 const PIKTOGRAMS = [
-  {id:"explosive", icon:"💥", name:"Eksplosif", slang:"Waspada bro! Bisa meletus kalau salah nangani."},
-  {id:"corrosive", icon:"🧪", name:"Korosif", slang:"Hati-hati, cairannya bisa ngikis bahan & kulit nih."},
-  {id:"toxic", icon:"☠️", name:"Racun", slang:"Jangan dimakan, jangan dihirup, mending jauh-jauh aja."}
+  {id:"explosive", name:"Eksplosif", slang:"Bahan kimia ini bisa meledak! Biasanya karena nggak stabil, bisa bereaksi sendiri. Jauhin dari panas, guncangan, atau gesekan. Pokoknya, jangan diajak bercanda.", imagePath:"assets/ghs/Eksplosif.png"},
+  {id:"corrosive", name:"Korosif", slang:"Bahan ini 'ganas'! Bisa merusak logam, dan yang lebih ngeri, bisa bikin kulit atau mata kamu iritasi parah. Kalau kena, rasanya kayak kebakar. Jangan sampai kontak langsung!", imagePath:"assets/ghs/Korosif.png"},
+  {id:"toxic", name:"Racun", slang:"Jangan main-main, levelnya 'danger'. Sedikit aja tertelan, terhirup, atau kena kulit bisa berakibat fatal atau keracunan parah.", imagePath:"assets/ghs/Toxic.png"},
+  {id:"oksidator", name:"Oksidator", slang:"Bahan ini bisa bikin bahan lain terbakar lebih hebat, atau bahkan meledak. Jangan pernah campur dengan bahan yang mudah terbakar, bisa-bisa jadi ada pesta kembang api dadakan.", imagePath:"assets/ghs/Oksidator.png"},
+  {id:"environment", name:"Pencemar Lingkungan", slang:"Bahan ini musuhnya alam, terutama kehidupan air. Jangan sampai tumpah atau dibuang sembarangan ke selokan. Kita jaga bumi bareng-bareng, ya!", imagePath:"assets/ghs/Lingkungan.png"},
 ];
 
 /* Tips K3 (bahasa santai/gaul) */
@@ -292,7 +294,20 @@ function renderGHS(){
   ghsList.innerHTML='';
   PIKTOGRAMS.forEach(p=>{
     const c=document.createElement('div'); c.className='card';
-    c.innerHTML=`<h3>${p.icon} ${p.name}</h3><div class="small">${p.slang}</div>`;
+    
+    // Ganti BARIS INI (c.innerHTML)
+    c.innerHTML=`
+      <div style="text-align:center; margin-bottom: 10px;">
+          <img 
+              src="${p.imagePath}" 
+              alt="Piktogram ${p.name}" 
+              style="height: 60px; width: 60px; object-fit: contain; margin-bottom: 8px;"
+          >
+          <h3 style="font-size: 18px; margin: 0;">${p.name}</h3>
+      </div>
+      <div class="small">${p.slang}</div>
+    `;
+    
     ghsList.appendChild(c);
   });
 }
