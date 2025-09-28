@@ -60,10 +60,56 @@ nav a.active{color:var(--accent)}
 
 /* responsive */
 @media (max-width:640px){
-  .header{padding:8px}
-  nav a{margin-left:10px;font-size:14px}
-  .hero{padding:14px}
-  .modal iframe{height:55vh}
+  .header{
+        /* Membuat logo dan navigasi bertumpuk, bukan bersebelahan */
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 8px 0 15px 0; /* Tambahkan padding bawah agar ada jarak */
+    }
+    
+    /* Mengubah menu navigasi (NAV) */
+    nav {
+        margin-left: 0; /* Hapus dorongan ke kanan */
+        width: 100%; /* Ambil lebar penuh */
+        display: flex;
+        flex-direction: column; /* Tumpuk tautan secara vertikal */
+        gap: 0; /* Hapus jarak antar link jika ingin rapat */
+    }
+    nav a {
+        /* Berikan semua tautan lebar penuh dan hilangkan margin horizontal */
+        margin-left: 0; 
+        padding: 10px 0; /* Perbesar area klik */
+        text-align: center;
+        border-bottom: 1px solid #eef2f9; /* Garis pemisah agar mudah dibaca */
+        font-size: 15px; /* Sedikit perbesar font agar mudah dibaca */
+    }
+    
+    /* Mengubah kotak pencarian HERO */
+    .search-wrap {
+        flex-direction: column; /* Tumpuk elemen search secara vertikal */
+        gap: 15px;
+        margin-top: 14px;
+    }
+    
+    .search-box, .controls {
+        width: 100%; /* Pastikan kotak pencarian dan kontrol ambil lebar penuh */
+    }
+    
+    /* Memastikan tombol dan dropdown sejajar dan mengisi ruang */
+    .controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Memastikan dua kolom kecil (Tips & Piktogram) bertumpuk */
+    div[style*="flex-wrap:wrap;"] {
+        flex-direction: column;
+        gap: 15px !important; /* !important opsional jika perlu menimpa inline style */
+    }
+
+    .hero{padding:14px}
+    .modal iframe{height:55vh}
 }
 </style>
 </head>
