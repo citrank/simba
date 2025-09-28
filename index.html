@@ -91,12 +91,13 @@ nav a.active{color:var(--accent)}
     </a>
 
     <nav>
-      <a href="#home" class="active">Beranda</a>
-      <a href="#msds" class="active">MSDS</a>
-      <a href="#pengujian" class="active">Pengujian</a>
-      <a href="#ghs" class="active">Piktogram GHS</a>
-      <a href="#apd" class="active">APD</a>
-    </nav>
+  <a href="#home" class="navlink active" data-target="home">Beranda</a>
+  <a href="#msds" class="navlink" data-target="msds">MSDS</a>
+  <a href="#pengujian" class="navlink" data-target="pengujian">Pengujian</a>
+  <a href="#ghs" class="navlink" data-target="ghs">Piktogram GHS</a>
+  <a href="#apd" class="navlink" data-target="apd">APD</a>
+</nav>
+
   </header>
 
   <!-- ======= HOME ======= -->
@@ -400,6 +401,20 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
+  /* START OF NAVIGATION FIX: Tambahkan Event Listener untuk tautan menu */
+document.querySelectorAll('nav a.navlink').forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Mencegah browser melompat ke #ID di URL secara default
+        e.preventDefault(); 
+        const targetId = this.getAttribute('data-target');
+        if (targetId) {
+            // Panggil fungsi showSection yang sudah ada
+            showSection(targetId);
+        }
+    });
+});
+/* END OF NAVIGATION FIX */
+  
 /* search button on home goes to msds with query */
 goMsds.addEventListener('click', ()=>{
   showSection('msds');
