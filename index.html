@@ -218,6 +218,11 @@ const PIKTOGRAMS = [
   {id:"toxic", name:"Racun", slang:"Jangan main-main, levelnya 'danger'. Sedikit aja tertelan, terhirup, atau kena kulit bisa berakibat fatal atau keracunan parah.", imagePath:"assets/ghs/Toxic.png"},
   {id:"oksidator", name:"Oksidator", slang:"Bahan ini bisa bikin bahan lain terbakar lebih hebat, atau bahkan meledak. Jangan pernah campur dengan bahan yang mudah terbakar, bisa-bisa jadi ada pesta kembang api dadakan.", imagePath:"assets/ghs/Oksidator.png"},
   {id:"environment", name:"Pencemar Lingkungan", slang:"Bahan ini musuhnya alam, terutama kehidupan air. Jangan sampai tumpah atau dibuang sembarangan ke selokan. Kita jaga bumi bareng-bareng, ya!", imagePath:"assets/ghs/Lingkungan.png"},
+  {id:"flammable", name:"Mudah Menyala", slang:"Hati-hati, bahan ini gampang banget kebakar. Mulai dari yang bisa nyala sendiri di udara, sampai yang butuh percikan api dikit aja sudah nyala. Pastiin jauh dari sumber api ya!", imagePath:"assets/ghs/Menyala.png"},
+  {id:"compressed gas", name:"Gas Bertekanan", slang:"Isinya gas yang dimampatkan, bisa gas cair atau terlarut. Kalau wadahnya rusak atau kepanasan, isinya bisa 'kabur' dan bikin cedera, atau bahkan meledak. Simpan di tempat yang dingin ya!.", imagePath:"assets/ghs/GasBertekanan.png"},
+  {id:"health hazzard", name:"Bahaya Kesehatan", slang:"Efeknya nggak langsung kelihatan, tapi bahaya jangka panjang. Bisa jadi karsinogen (penyebab kanker), mutagen (merusak gen), atau beracun buat organ tubuh. Jaga diri baik-baik!", imagePath:"assets/ghs/Karsinogen.png"},
+  {id:"harmful", name:"Pemicu Iritasi", slang:"Level waspada! Bahan ini bisa bikin iritasi kulit atau mata, ruam, atau pusing kalau terhirup. Nggak se-fatal yang lain, tapi tetap aja nggak nyaman dan harus dihindari.", imagePath:"assets/ghs/iritasi.png"},
+  
 ];
 
 /* Tips K3 (bahasa santai/gaul) */
@@ -439,8 +444,19 @@ function renderPiktogramAndTips(){
   const pi = dailyIndex(PIKTOGRAMS.length);
   const ti = dailyIndex(TIPS.length);
   const p = PIKTOGRAMS[pi];
-  piktogramOfDay.innerHTML = `<strong>${p.icon} ${p.name}</strong><div class="small">${p.slang}</div>`;
-  tipsOfDay.textContent = TIPS[ti];
+  piktogramOfDay.innerHTML = `
+      <div style="text-align:center; padding: 10px 0;">
+          <img 
+              src="${p.imagePath}" 
+              alt="Piktogram ${p.name}" 
+              style="height: 40px; width: 40px; object-fit: contain; margin-bottom: 5px;"
+          >
+          <strong style="font-size: 15px; display: block;">${p.name}</strong>
+      </div>
+      <div class="small" style="margin-top:5px;">${p.slang}</div>
+  `;
+  
+  tipsOfDay.textContent = TIPS[ti];
 }
 
 /* init app */
