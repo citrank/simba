@@ -58,6 +58,28 @@ nav a.active{color:var(--accent)}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .controls{display:flex;gap:10px;align-items:center}
 
+/* Di bagian manapun di <style> */
+.daily-card {
+    /* Menghapus border/shadow asli jika ada */
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: none;
+    background: #fff; 
+    padding: 12px;
+    border-radius: 12px;
+}
+/* Style untuk card Piktogram */
+#piktogramOfDayCard {
+    /* Garis tebal di kiri (GHS memiliki 9 simbol, jadi warna kuning/orange cocok) */
+    border-left: 5px solid #ffaa00; /* Warna Orange */
+    padding-left: 10px; /* Tambahkan ruang setelah garis */
+}
+/* Style untuk card Tips K3 */
+#tipsOfDayCard {
+    /* Garis tebal di kiri (K3 identik dengan warna hijau/biru) */
+    border-left: 5px solid #28a745; /* Warna Hijau */
+    padding-left: 10px;
+}
+
 /* responsive */
 @media (max-width:640px){
   .header{
@@ -153,15 +175,15 @@ nav a.active{color:var(--accent)}
     </div>
 
     <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap;">
-      <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-        <h4>Piktogram GHS of the Day</h4>
-        <div id="piktogramOfDay" class="small">Memuat...</div>
-      </div>
-      <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-        <h4>Tips K3 of the Day</h4>
-        <div id="tipsOfDay" class="small">Memuat...</div>
-      </div>
-    </div>
+  <div id="piktogramOfDayCard" class="daily-card" style="flex:1;min-width:240px;">
+    <h4>Piktogram GHS of the Day</h4>
+    <div id="piktogramOfDay" class="small">Memuat...</div>
+  </div>
+  <div id="tipsOfDayCard" class="daily-card" style="flex:1;min-width:240px;">
+    <h4>Tips K3 of the Day</h4>
+    <div id="tipsOfDay" class="small">Memuat...</div>
+  </div>
+</div>
   </section>
 
   <!-- ======= MSDS (cards) ======= -->
