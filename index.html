@@ -36,8 +36,33 @@ nav a.active{color:var(--accent)}
 .search-wrap{display:flex;gap:10px;align-items:center;margin-top:12px}
 .search-box{flex:1;display:flex;align-items:center;background:#fff;border-radius:999px;padding:12px 14px;border:1px solid #e6eef6}
 .search-box input{border:0;outline:none;flex:1;font-size:15px}
-.select-inline, .btn-primary{padding:10px 14px;border-radius:10px;border:0;font-weight:700}
-.btn-primary{background:var(--accent);color:white}
+.select-inline, 
+  .btn-primary{padding:10px 14px;border-radius:10px;border:0;font-weight:700}
+.btn-primary{background:var(--accent);color:white;transition: transform 0.1s ease, box-shadow 0.1s ease; 
+}
+  /* Efek saat tombol disentuh (hover) */
+.btn-primary:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 115, 170, 0.4); 
+}
+
+/* Efek saat tombol diklik (pop up/zoom/push) */
+.btn-primary:active {
+    /* Membuat tombol sedikit menyusut (pop up/push effect) */
+    transform: scale(0.98); 
+    box-shadow: 0 2px 5px rgba(0, 115, 170, 0.3); 
+}
+
+/* Efek tombol 'Lihat MSDS' di Top 5 List (link-btn) */
+.top-list .link-btn {
+    transition: transform 0.1s ease, background 0.2s;
+}
+.top-list .link-btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.top-list .link-btn:active {
+    transform: scale(0.97);
+}
 
 /* Grid cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:18px}
@@ -254,7 +279,7 @@ const MSDS_DATA = [
     "id":"naoh",
     "name":"Natrium Hidroksida (Sodium Hydroxide)",
     "formula":"NaOH",
-    "testing":["Amonia", "Cemaran Logam (Hg)"],
+    "testing":["Amonia", "Cemaran Logam Raksa (Hg)"],
     "pdf":"assets/pdf/NaOH.PDF",
     "piktogram":"🧴 Korosif",
     "apd":["Sarung tangan nitril", "Jas lab", "Masker"]
