@@ -282,7 +282,7 @@ const MSDS_DATA = [
     "testing":["Amonia", "Cemaran Logam Raksa (Hg)"],
     "pdf":"assets/pdf/NaOH.PDF",
     "piktogram":"🧴 Korosif",
-    "apd":["Sarung tangan nitril", "Jas lab", "Masker"]
+    "apd":["Sarung Tangan", "Jas lab", "Masker"]
   },
   {
     "id":"h2so4",
@@ -300,7 +300,7 @@ const MSDS_DATA = [
     "testing":["COD"],
     "pdf":"assets/pdf/Hg2SO4.PDF",
     "piktogram":["Toxic", "Bahaya Kesehatan", "Korosif", "Pencemar Lingkungan"],
-    "apd":["Goggles", "Sarung tangan nitril", "Masker", "Jas Lab"]
+    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"]
   },
    {
     "id":"phenol",
@@ -309,7 +309,7 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/PHENOL.PDF",
     "piktogram":["Toxic", "Bahaya Kesehatan", "Korosif", "Pencemar Lingkungan"],
-    "apd":["Goggles", "Sarung tangan nitril", "Masker", "Jas Lab"]
+    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"]
   },
   {
     "id":"nitropusid",
@@ -318,7 +318,7 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/NatriumNitroprusid.PDF",
     "piktogram":"Toxic",
-    "apd":["Goggles", "Sarung tangan nitril", "Masker", "Jas Lab"]
+    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"]
   },
   {
     "id":"trinatrium",
@@ -327,7 +327,7 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/Trinatirumsitrat.PDF",
     "piktogram":"-",
-    "apd":["Sarung tangan nitril", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
   },
   {
     "id":"hipoklorit",
@@ -336,7 +336,7 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/NatriumHipoklorit.PDF",
     "piktogram":["Toxic", "Pencemar Lingkungan"],
-    "apd":["Sarung tangan nitril", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
   },
   {
     "id":"amonia",
@@ -345,7 +345,7 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/stdamonia.PDF",
     "piktogram":"-",
-    "apd":["Sarung tangan nitril", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
   },
   {
     "id":"arsen",
@@ -354,7 +354,7 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Arsen (As)"],
     "pdf":"assets/pdf/arsen.PDF",
     "piktogram":["Bahaya Kesehatan", "Korosif"],
-    "apd":["Sarung tangan nitril", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
   },
   {
     "id":"asamnitrat",
@@ -363,7 +363,52 @@ const MSDS_DATA = [
     "testing":["Besi (Fe)", "Cemaran Logam Arsen (As)", "Cemaran Logam Cadmium (Cd)", "Cemaran Logam Nickel (Ni)", "Cemaran Logam Raksa (Hg)", "Cemaran Logam Tembaga (Cu)", "Cemaran Logam Timbal (Pb)", "Chrom (Cr)", "Mangan (Mn)", "Nitrat", "Perak (Ag)"],
     "pdf":"assets/pdf/AsamNitrat.PDF",
     "piktogram":["Korosif"],
-    "apd":["Sarung tangan nitril", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+  },
+  {
+    "id":"cadmium",
+    "name":"Larutan Standard Cadmium (Cd) 1000 mg/l",
+    "formula":"Cd(NO₃)₂·4H₂O",
+    "testing":"Cemaran Logam Cadmium (Cd)",
+    "pdf":"assets/pdf/Cd.PDF",
+    "piktogram":["Bahaya Kesehatan", "Korosif"],
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+  },
+  {
+    "id":"nikel",
+    "name":"Larutan Standard Nickel (Ni) 1000 mg/l",
+    "formula":"Ni(NO3)2 in HNO3",
+    "testing":"Cemaran Logam Nickel (Ni)",
+    "pdf":"assets/pdf/nickel.PDF",
+    "piktogram":["Bahaya Kesehatan", "Korosif", "Pemicu Iritasi"],
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+  },
+  {
+    "id":"hcl",
+    "name":"Asam klorida (Hydrochloric acid)",
+    "formula":"HCl",
+    "testing":["Cemaran Logam Raksa (Hg)", "Fluorida", "Nitrat", "Sulfat"],
+    "pdf":"assets/pdf/HCl.PDF",
+    "piktogram":["Korosif", "Pemicu Iritasi"],
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+  },
+  {
+    "id":"hg",
+    "name":"Larutan Standard Merkuri (Hg) 1000 mg/l",
+    "formula":"Hg(NO₃)₂",
+    "testing":"Cemaran Logam Raksa (Hg)",
+    "pdf":"assets/pdf/Merkuri.PDF",
+    "piktogram":["Korosif", "Bahaya Kesehatan"],
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+  },
+  {
+    "id":"borohidrida",
+    "name":"Natrium Borohidrida",
+    "formula":"NaBH4",
+    "testing":"Cemaran Logam Raksa (Hg)",
+    "pdf":"assets/pdf/NaBH4.PDF",
+    "piktogram":["Mudah Menyala", "Bahaya Kesehatan", "Toxic", "Korosif"],
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
   },
 ];
 
