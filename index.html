@@ -9,12 +9,12 @@
 <style>
 /* ====== Basic CSS (responsive + modern card design) ====== */
 :root{
-  --accent:#0073aa;
-  --muted:#6b7280;
-  --bg:#f6f9fb;
-  --card:#fff;
-  --radius:12px;
-  --gap:18px;
+  --accent:#0073aa;
+  --muted:#6b7280;
+  --bg:#f6f9fb;
+  --card:#fff;
+  --radius:12px;
+  --gap:18px;
 }
 *{box-sizing:border-box}
 body{font-family:Inter, "Segoe UI", Roboto, Arial; margin:0; background:var(--bg); color:#0f172a; line-height:1.4}
@@ -61,299 +61,283 @@ nav a.active{color:var(--accent)}
 /* responsive */
 @media (max-width:640px){
   .header{
-        /* Membuat logo dan navigasi bertumpuk, bukan bersebelahan */
-        flex-direction: column; 
-        align-items: flex-start;
-        padding: 8px 0 15px 0; /* Tambahkan padding bawah agar ada jarak */
-    }
-    
-    /* Mengubah menu navigasi (NAV) */
-    nav {
-        margin-left: 0; /* Hapus dorongan ke kanan */
-        width: 100%; /* Ambil lebar penuh */
-        display: flex;
-        flex-direction: column; /* Tumpuk tautan secara vertikal */
-        gap: 0; /* Hapus jarak antar link jika ingin rapat */
-    }
-    nav a {
-        /* Berikan semua tautan lebar penuh dan hilangkan margin horizontal */
-        margin-left: 0; 
-        padding: 10px 0; /* Perbesar area klik */
-        text-align: center;
-        border-bottom: 1px solid #eef2f9; /* Garis pemisah agar mudah dibaca */
-        font-size: 15px; /* Sedikit perbesar font agar mudah dibaca */
-    }
-    
-    /* Mengubah kotak pencarian HERO */
-    .search-wrap {
-        flex-direction: column; /* Tumpuk elemen search secara vertikal */
-        gap: 15px;
-        margin-top: 14px;
-    }
-    
-    .search-box, .controls {
-        width: 100%; /* Pastikan kotak pencarian dan kontrol ambil lebar penuh */
-    }
-    
-    /* Memastikan tombol dan dropdown sejajar dan mengisi ruang */
-    .controls {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+        /* Membuat logo dan navigasi bertumpuk, bukan bersebelahan */
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 8px 0 15px 0; /* Tambahkan padding bawah agar ada jarak */
+    }
+    
+    /* Mengubah menu navigasi (NAV) */
+    nav {
+        margin-left: 0; /* Hapus dorongan ke kanan */
+        width: 100%; /* Ambil lebar penuh */
+        display: flex;
+        flex-direction: column; /* Tumpuk tautan secara vertikal */
+        gap: 0; /* Hapus jarak antar link jika ingin rapat */
+    }
+    nav a {
+        /* Berikan semua tautan lebar penuh dan hilangkan margin horizontal */
+        margin-left: 0; 
+        padding: 10px 0; /* Perbesar area klik */
+        text-align: center;
+        border-bottom: 1px solid #eef2f9; /* Garis pemisah agar mudah dibaca */
+        font-size: 15px; /* Sedikit perbesar font agar mudah dibaca */
+    }
+    
+    /* Mengubah kotak pencarian HERO */
+    .search-wrap {
+        flex-direction: column; /* Tumpuk elemen search secara vertikal */
+        gap: 15px;
+        margin-top: 14px;
+    }
+    
+    .search-box, .controls {
+        width: 100%; /* Pastikan kotak pencarian dan kontrol ambil lebar penuh */
+    }
+    
+    /* Memastikan tombol dan dropdown sejajar dan mengisi ruang */
+    .controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-    /* Memastikan dua kolom kecil (Tips & Piktogram) bertumpuk */
-    div[style*="flex-wrap:wrap;"] {
-        flex-direction: column;
-        gap: 15px !important; /* !important opsional jika perlu menimpa inline style */
-    }
+    /* Memastikan dua kolom kecil (Tips & Piktogram) bertumpuk */
+    div[style*="flex-wrap:wrap;"] {
+        flex-direction: column;
+        gap: 15px !important; /* !important opsional jika perlu menimpa inline style */
+    }
 
-    .hero{padding:14px}
-    .modal iframe{height:55vh}
+    .hero{padding:14px}
+    .modal iframe{height:55vh}
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <!-- HEADER -->
-  <header class="header">
-    <a class="brand" href="#home" id="nav-home">
+  <!-- HEADER -->
+  <header class="header">
+    <a class="brand" href="#home" id="nav-home">
   <div class="logo" aria-hidden>
         <img src="assets/gambar/LogoSImba.png" alt="Logo SIMBA" id="png-logo">
   </div>
-      <h1>SIMBA</h1>
+      <h1>SIMBA</h1>
 </a>
 
-    <nav>
-  <a href="#home" class="navlink active" data-target="home">Beranda</a>
-  <a href="#msds" class="navlink" data-target="msds">MSDS</a>
-  <a href="#pengujian" class="navlink" data-target="pengujian">Pengujian</a>
-  <a href="#ghs" class="navlink" data-target="ghs">Piktogram GHS</a>
-  <a href="#apd" class="navlink" data-target="apd">APD</a>
+    <nav>
+  <a href="#home" class="navlink active" data-target="home">Beranda</a>
+  <a href="#msds" class="navlink" data-target="msds">MSDS</a>
+  <a href="#pengujian" class="navlink" data-target="pengujian">Pengujian</a>
+  <a href="#ghs" class="navlink" data-target="ghs">Piktogram GHS</a>
+  <a href="#apd" class="navlink" data-target="apd">APD</a>
 </nav>
 
-  </header>
+  </header>
 
-  <!-- ======= HOME ======= -->
-  <section id="home" class="hero">
-  <h2>Selamat datang di SIMBA</h2>
-  <p class="small">Sistem Informasi MSDS Bahan Kimia — cari informasi MSDS, piktogram, dan APD dengan cepat & aman.</p>
+  <!-- ======= HOME ======= -->
+  <section id="home" class="hero">
+    <h2>Selamat datang di SIMBA</h2>
+    <p class="small">Sistem Informasi MSDS Bahan Kimia — cari informasi MSDS, piktogram, dan APD dengan cepat & aman.</p>
 
-  <div class="search-wrap" style="margin-top:14px">
-    <div class="search-box">
-      <input id="searchInput" type="search" placeholder="Cari nama bahan kimia / rumus / pengujian..." aria-label="search"/>
+    <div class="search-wrap" style="margin-top:14px">
+      <div class="search-box">
+        <input id="searchInput" type="search" placeholder="Cari nama bahan kimia / rumus / pengujian..." aria-label="search"/>
+      </div>
+      <div class="controls">
+        <select id="sortSelect" class="select-inline">
+          <option value="name">Urut: Nama (A–Z)</option>
+          <option value="test">Urut: Pengujian</option>
+        </select>
+        <button id="goMsds" class="btn-primary">Cari</button>
+      </div>
     </div>
-    <div class="controls">
-      <select id="sortSelect" class="select-inline">
-        <option value="name">Urut: Nama (A–Z)</option>
-        <option value="test">Urut: Pengujian</option>
+
+    <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
+        <h4>Piktogram GHS of the Day</h4>
+        <div id="piktogramOfDay" class="small">Memuat...</div>
+      </div>
+      <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
+        <h4>Tips K3 of the Day</h4>
+        <div id="tipsOfDay" class="small">Memuat...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= MSDS (cards) ======= -->
+  <section id="msds" style="display:none; margin-top:18px">
+    <h2>Database MSDS</h2>
+    <p class="small">Klik kartu untuk melihat MSDS lengkap (buka & download PDF).</p>
+
+    <!-- filters row -->
+    <div class="row" style="margin-top:12px;">
+      <label class="small">Filter Pengujian:</label>
+      <select id="filterTest" class="select-inline">
+        <option value="">Semua</option>
       </select>
-      <button id="goMsds" class="btn-primary">Cari</button>
+      <label class="small">Urut:</label>
+      <select id="sortSelect2" class="select-inline">
+        <option value="name">Nama (A–Z)</option>
+        <option value="test">Pengujian</option>
+      </select>
     </div>
-  </div>
 
-  <div class="card" style="margin-top: 18px;">
-    <h4>🔝 Top 5 Bahan Kimia yang Paling Sering Digunakan</h4>
-    <ul id="topUsedList" style="list-style: none; padding: 0; margin: 0;">
-      </ul>
-  </div>
+    <div id="msdsGrid" class="grid" style="margin-top:14px"></div>
+  </section>
 
-  <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap;">
-    <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-      <h4>Piktogram GHS of the Day</h4>
-      <div id="piktogramOfDay" class="small">Memuat...</div>
-    </div>
-    <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-      <h4>Tips K3 of the Day</h4>
-      <div id="tipsOfDay" class="small">Memuat...</div>
-    </div>
-  </div>
-</section>
+  <!-- ======= PENGUJIAN ======= -->
+  <section id="pengujian" style="display:none;margin-top:18px">
+    <h2>Pengujian</h2>
+    <p class="small">Pilih kategori pengujian untuk melihat bahan yang digunakan.</p>
+    <div id="testsList" class="grid" style="margin-top:12px"></div>
+  </section>
 
-  <!-- ======= MSDS (cards) ======= -->
-  <section id="msds" style="display:none; margin-top:18px">
-    <h2>Database MSDS</h2>
-    <p class="small">Klik kartu untuk melihat MSDS lengkap (buka & download PDF).</p>
+  <!-- ======= PIKTOGRAM ======= -->
+  <section id="ghs" style="display:none;margin-top:18px">
+    <h2>Piktogram GHS</h2>
+    <p class="small">Kenali simbol-simbol bahaya universal ini! GHS (Globally Harmonized System) diciptakan agar kita semua, di mana pun, bisa langsung 'ngeh' sama bahaya suatu bahan kimia. Anggap aja ini emoji, tapi versi keselamatan.</p>
+    <div id="ghsList" style="margin-top:12px" class="grid"></div>
+  </section>
 
-    <!-- filters row -->
-    <div class="row" style="margin-top:12px;">
-      <label class="small">Filter Pengujian:</label>
-      <select id="filterTest" class="select-inline">
-        <option value="">Semua</option>
-      </select>
-      <label class="small">Urut:</label>
-      <select id="sortSelect2" class="select-inline">
-        <option value="name">Nama (A–Z)</option>
-        <option value="test">Pengujian</option>
-      </select>
-    </div>
-
-    <div id="msdsGrid" class="grid" style="margin-top:14px"></div>
-  </section>
-
-  <!-- ======= PENGUJIAN ======= -->
-  <section id="pengujian" style="display:none;margin-top:18px">
-    <h2>Pengujian</h2>
-    <p class="small">Pilih kategori pengujian untuk melihat bahan yang digunakan.</p>
-    <div id="testsList" class="grid" style="margin-top:12px"></div>
-  </section>
-
-  <!-- ======= PIKTOGRAM ======= -->
-  <section id="ghs" style="display:none;margin-top:18px">
-    <h2>Piktogram GHS</h2>
-    <p class="small">Kenali simbol-simbol bahaya universal ini! GHS (Globally Harmonized System) diciptakan agar kita semua, di mana pun, bisa langsung 'ngeh' sama bahaya suatu bahan kimia. Anggap aja ini emoji, tapi versi keselamatan.</p>
-    <div id="ghsList" style="margin-top:12px" class="grid"></div>
-  </section>
-
-  <!-- ======= APD ======= -->
-  <section id="apd" style="display:none;margin-top:18px">
-    <h2>APD Wajib di Laboratorium</h2>
-    <p class="small">Di lab, keselamatan itu nomor satu! Alat Pelindung Diri (APD) atau Personal Protective Equipment (PPE) adalah 'armor' yang melindungimu dari bahaya tak terlihat. Jangan anggap remeh, yuk kenali para pahlawan pelindung ini!</p>
-    <div id="apdList" style="margin-top:12px" class="grid"></div>
-  </section>
+  <!-- ======= APD ======= -->
+  <section id="apd" style="display:none;margin-top:18px">
+    <h2>APD Wajib di Laboratorium</h2>
+    <p class="small">Di lab, keselamatan itu nomor satu! Alat Pelindung Diri (APD) atau Personal Protective Equipment (PPE) adalah 'armor' yang melindungimu dari bahaya tak terlihat. Jangan anggap remeh, yuk kenali para pahlawan pelindung ini!</p>
+    <div id="apdList" style="margin-top:12px" class="grid"></div>
+  </section>
 </div>
 
 <!-- Modal detail -->
 <div id="modal" class="modal">
-  <div class="box">
-    <header>
-      <strong id="modalTitle">Nama Bahan</strong>
-      <div><button id="closeModal" class="btn-primary" style="background:#e05454">Tutup</button></div>
-    </header>
-    <div id="modalMeta" class="small"></div>
-    <div id="modalContent" style="margin-top:10px">
-      <iframe id="pdfViewer" src="" aria-label="MSDS viewer"></iframe>
-      <div style="margin-top:8px">
-        <a id="downloadLink" class="btn-primary" href="#" target="_blank">Download PDF</a>
-      </div>
-    </div>
-  </div>
+  <div class="box">
+    <header>
+      <strong id="modalTitle">Nama Bahan</strong>
+      <div><button id="closeModal" class="btn-primary" style="background:#e05454">Tutup</button></div>
+    </header>
+    <div id="modalMeta" class="small"></div>
+    <div id="modalContent" style="margin-top:10px">
+      <iframe id="pdfViewer" src="" aria-label="MSDS viewer"></iframe>
+      <div style="margin-top:8px">
+        <a id="downloadLink" class="btn-primary" href="#" target="_blank">Download PDF</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
 /* ====== Data: jika ingin, kamu dapat memindah ini ke file data/msds.json dan fetch() ====== */
 /* Contoh data minimal, ganti / tambahkan sesuai file Excel kamu. "pdf" is relative path under assets/pdf/ */
 const MSDS_DATA = [
-  {
-    "id":"naoh",
-    "name":"Natrium Hidroksida (Sodium Hydroxide)",
-    "formula":"NaOH",
-    "testing":["Amonia","Cemaran Logam (Hg)"],
-    "pdf":"assets/pdf/NaOH.PDF",
-    "piktogram":"🧴 Korosif",
-    "apd":["Sarung tangan nitril","Jas lab","Masker"]
-  },
-  {
-    "id":"h2so4",
-    "name":"Asam Sulfat (Sulfuric Acid)",
-    "formula":"H2SO4",
-    "testing":["COD","Nitrit (NO2-N)"],
-    "pdf":"assets/pdf/H2SO4.PDF",
-    "piktogram":"Korosif",
-    "apd":["Goggles","Jas Lab","Sarung tangan tahan asam","Respirator"]
-  },
-  {
-    "id":"hgso4",
-    "name":"Merkuri(II) sulfat (Mercuric sulfate)",
-    "formula":"HgSO4",
-    "testing":["COD"],
-    "pdf":"assets/pdf/Hg2SO4.PDF",
-    "piktogram":["Toxic","Bahaya Kesehatan","Korosif","Pencemar Lingkungan"],
-    "apd":["Goggles","Sarung tangan nitril","Masker","Jas Lab"]
-  },
-   {
-    "id":"phenol",
-    "name":"Larutan Fenol (Phenol)",
-    "formula":"C6H5OH",
-    "testing":["Amonia"],
-    "pdf":"assets/pdf/PHENOL.PDF",
-    "piktogram":["Toxic","Bahaya Kesehatan","Korosif","Pencemar Lingkungan"],
-    "apd":["Goggles","Sarung tangan nitril","Masker","Jas Lab"]
-  },
-  {
-    "id":"nitropusid",
-    "name":"Natrium Nitropusid (Sodium Nitroprusside)",
-    "formula":"Na₂[Fe(CN)₅NO]·2H₂O",
-    "testing":["Amonia"],
-    "pdf":"assets/pdf/NatriumNitroprusid.PDF",
-    "piktogram":"Toxic",
-    "apd":["Goggles","Sarung tangan nitril","Masker","Jas Lab"]
-  },
-  {
-    "id":"trinatrium",
-    "name":"Trinatrium Sitrat",
-    "formula":"Na₃C₆H₅O₇",
-    "testing":["Amonia"],
-    "pdf":"assets/pdf/Trinatirumsitrat.PDF",
-    "piktogram":"-",
-    "apd":["Sarung tangan nitril","Masker","Jas Lab"]
-  },
-  {
-    "id":"hipoklorit",
-    "name":"Natrium Hipoklorit (Sodium hypochlorite)",
-    "formula":"NaClO",
-    "testing":["Amonia"],
-    "pdf":"assets/pdf/NatriumHipoklorit.PDF",
-    "piktogram":["Toxic","Pencemar Lingkungan"],
-    "apd":["Sarung tangan nitril","Masker","Jas Lab"]
-  },
-  {
-    "id":"amonia",
-    "name":"Larutan Standard Amonium (Ammonium chloride)",
-    "formula":"NH4Cl in H2O",
-    "testing":["Amonia"],
-    "pdf":"assets/pdf/stdamonia.PDF",
-    "piktogram":"-",
-    "apd":["Sarung tangan nitril","Masker","Jas Lab"]
-  }
+  {
+    "id":"naoh",
+    "name":"Natrium Hidroksida (Sodium Hydroxide)",
+    "formula":"NaOH",
+    "testing":["Amonia","Cemaran Logam (Hg)"],
+    "pdf":"assets/pdf/NaOH.PDF",
+    "piktogram":"🧴 Korosif",
+    "apd":["Sarung tangan nitril","Jas lab","Masker"]
+  },
+  {
+    "id":"h2so4",
+    "name":"Asam Sulfat (Sulfuric Acid)",
+    "formula":"H2SO4",
+    "testing":["COD","Nitrit (NO2-N)"],
+    "pdf":"assets/pdf/H2SO4.PDF",
+    "piktogram":"Korosif",
+    "apd":["Goggles","Jas Lab","Sarung tangan tahan asam","Respirator"]
+  },
+  {
+    "id":"hgso4",
+    "name":"Merkuri(II) sulfat (Mercuric sulfate)",
+    "formula":"HgSO4",
+    "testing":["COD"],
+    "pdf":"assets/pdf/Hg2SO4.PDF",
+    "piktogram":["Toxic","Bahaya Kesehatan","Korosif","Pencemar Lingkungan"],
+    "apd":["Goggles","Sarung tangan nitril","Masker","Jas Lab"]
+  },
+   {
+    "id":"phenol",
+    "name":"Larutan Fenol (Phenol)",
+    "formula":"C6H5OH",
+    "testing":["Amonia"],
+    "pdf":"assets/pdf/PHENOL.PDF",
+    "piktogram":["Toxic","Bahaya Kesehatan","Korosif","Pencemar Lingkungan"],
+    "apd":["Goggles","Sarung tangan nitril","Masker","Jas Lab"]
+  },
+  {
+    "id":"nitropusid",
+    "name":"Natrium Nitropusid (Sodium Nitroprusside)",
+    "formula":"Na₂[Fe(CN)₅NO]·2H₂O",
+    "testing":["Amonia"],
+    "pdf":"assets/pdf/NatriumNitroprusid.PDF",
+    "piktogram":"Toxic",
+    "apd":["Goggles","Sarung tangan nitril","Masker","Jas Lab"]
+  },
+  {
+    "id":"trinatrium",
+    "name":"Trinatrium Sitrat",
+    "formula":"Na₃C₆H₅O₇",
+    "testing":["Amonia"],
+    "pdf":"assets/pdf/Trinatirumsitrat.PDF",
+    "piktogram":"-",
+    "apd":["Sarung tangan nitril","Masker","Jas Lab"]
+  },
+  {
+    "id":"hipoklorit",
+    "name":"Natrium Hipoklorit (Sodium hypochlorite)",
+    "formula":"NaClO",
+    "testing":["Amonia"],
+    "pdf":"assets/pdf/NatriumHipoklorit.PDF",
+    "piktogram":["Toxic","Pencemar Lingkungan"],
+    "apd":["Sarung tangan nitril","Masker","Jas Lab"]
+  },
+  {
+    "id":"amonia",
+    "name":"Larutan Standard Amonium (Ammonium chloride)",
+    "formula":"NH4Cl in H2O",
+    "testing":["Amonia"],
+    "pdf":"assets/pdf/stdamonia.PDF",
+    "piktogram":"-",
+    "apd":["Sarung tangan nitril","Masker","Jas Lab"]
+  }
 ];
 
 /* Piktogram list & 'bahasa gaul' descriptions untuk of the day */
 const PIKTOGRAMS = [
-  {id:"explosive", name:"Eksplosif", slang:"Bahan kimia ini bisa meledak! Biasanya karena nggak stabil, bisa bereaksi sendiri. Jauhin dari panas, guncangan, atau gesekan. Pokoknya, jangan diajak bercanda.", imagePath:"assets/ghs/Eksplosif.png"},
-  {id:"corrosive", name:"Korosif", slang:"Bahan ini 'ganas'! Bisa merusak logam, dan yang lebih ngeri, bisa bikin kulit atau mata kamu iritasi parah. Kalau kena, rasanya kayak kebakar. Jangan sampai kontak langsung!", imagePath:"assets/ghs/Korosif.png"},
-  {id:"toxic", name:"Racun", slang:"Jangan main-main, levelnya 'danger'. Sedikit aja tertelan, terhirup, atau kena kulit bisa berakibat fatal atau keracunan parah.", imagePath:"assets/ghs/Toxic.png"},
-  {id:"oksidator", name:"Oksidator", slang:"Bahan ini bisa bikin bahan lain terbakar lebih hebat, atau bahkan meledak. Jangan pernah campur dengan bahan yang mudah terbakar, bisa-bisa jadi ada pesta kembang api dadakan.", imagePath:"assets/ghs/Oksidator.png"},
-  {id:"environment", name:"Pencemar Lingkungan", slang:"Bahan ini musuhnya alam, terutama kehidupan air. Jangan sampai tumpah atau dibuang sembarangan ke selokan. Kita jaga bumi bareng-bareng, ya!", imagePath:"assets/ghs/Lingkungan.png"},
-  {id:"flammable", name:"Mudah Menyala", slang:"Hati-hati, bahan ini gampang banget kebakar. Mulai dari yang bisa nyala sendiri di udara, sampai yang butuh percikan api dikit aja sudah nyala. Pastiin jauh dari sumber api ya!", imagePath:"assets/ghs/Menyala.png"},
-  {id:"compressed gas", name:"Gas Bertekanan", slang:"Isinya gas yang dimampatkan, bisa gas cair atau terlarut. Kalau wadahnya rusak atau kepanasan, isinya bisa 'kabur' dan bikin cedera, atau bahkan meledak. Simpan di tempat yang dingin ya!.", imagePath:"assets/ghs/GasBertekanan.png"},
-  {id:"health hazzard", name:"Bahaya Kesehatan", slang:"Efeknya nggak langsung kelihatan, tapi bahaya jangka panjang. Bisa jadi karsinogen (penyebab kanker), mutagen (merusak gen), atau beracun buat organ tubuh. Jaga diri baik-baik!", imagePath:"assets/ghs/Karsinogen.png"},
-  {id:"harmful", name:"Pemicu Iritasi", slang:"Level waspada! Bahan ini bisa bikin iritasi kulit atau mata, ruam, atau pusing kalau terhirup. Nggak se-fatal yang lain, tapi tetap aja nggak nyaman dan harus dihindari.", imagePath:"assets/ghs/iritasi.png"},
-  
+  {id:"explosive", name:"Eksplosif", slang:"Bahan kimia ini bisa meledak! Biasanya karena nggak stabil, bisa bereaksi sendiri. Jauhin dari panas, guncangan, atau gesekan. Pokoknya, jangan diajak bercanda.", imagePath:"assets/ghs/Eksplosif.png"},
+  {id:"corrosive", name:"Korosif", slang:"Bahan ini 'ganas'! Bisa merusak logam, dan yang lebih ngeri, bisa bikin kulit atau mata kamu iritasi parah. Kalau kena, rasanya kayak kebakar. Jangan sampai kontak langsung!", imagePath:"assets/ghs/Korosif.png"},
+  {id:"toxic", name:"Racun", slang:"Jangan main-main, levelnya 'danger'. Sedikit aja tertelan, terhirup, atau kena kulit bisa berakibat fatal atau keracunan parah.", imagePath:"assets/ghs/Toxic.png"},
+  {id:"oksidator", name:"Oksidator", slang:"Bahan ini bisa bikin bahan lain terbakar lebih hebat, atau bahkan meledak. Jangan pernah campur dengan bahan yang mudah terbakar, bisa-bisa jadi ada pesta kembang api dadakan.", imagePath:"assets/ghs/Oksidator.png"},
+  {id:"environment", name:"Pencemar Lingkungan", slang:"Bahan ini musuhnya alam, terutama kehidupan air. Jangan sampai tumpah atau dibuang sembarangan ke selokan. Kita jaga bumi bareng-bareng, ya!", imagePath:"assets/ghs/Lingkungan.png"},
+  {id:"flammable", name:"Mudah Menyala", slang:"Hati-hati, bahan ini gampang banget kebakar. Mulai dari yang bisa nyala sendiri di udara, sampai yang butuh percikan api dikit aja sudah nyala. Pastiin jauh dari sumber api ya!", imagePath:"assets/ghs/Menyala.png"},
+  {id:"compressed gas", name:"Gas Bertekanan", slang:"Isinya gas yang dimampatkan, bisa gas cair atau terlarut. Kalau wadahnya rusak atau kepanasan, isinya bisa 'kabur' dan bikin cedera, atau bahkan meledak. Simpan di tempat yang dingin ya!.", imagePath:"assets/ghs/GasBertekanan.png"},
+  {id:"health hazzard", name:"Bahaya Kesehatan", slang:"Efeknya nggak langsung kelihatan, tapi bahaya jangka panjang. Bisa jadi karsinogen (penyebab kanker), mutagen (merusak gen), atau beracun buat organ tubuh. Jaga diri baik-baik!", imagePath:"assets/ghs/Karsinogen.png"},
+  {id:"harmful", name:"Pemicu Iritasi", slang:"Level waspada! Bahan ini bisa bikin iritasi kulit atau mata, ruam, atau pusing kalau terhirup. Nggak se-fatal yang lain, tapi tetap aja nggak nyaman dan harus dihindari.", imagePath:"assets/ghs/iritasi.png"},
+  
 ];
 
 /* Tips K3 (bahasa santai/gaul) */
 const TIPS = [
-  "Jangan pipet pake mulut, selalu pakai pipet bulb.",
-  "Selalu baca label MSDS sebelum pakai bahan kimia baru. Kenali musuhmu sebelum berperang!",
-  "Label bahan itu penting, jangan nebak-nebak.",
-  "Kalau tumpah, lap dulu pake pad yang sesuai dan laporkan.",
-  "Rambut panjang? Ikat ke belakang! Biar nggak jadi 'sumbu' dadakan pas deket api.",
-  "Pakai sepatu tertutup, ya! Sandal jepit emang nyaman, tapi nggak bakal melindungimu dari pecahan kaca atau tumpahan asam.",
-  "Cuci tangan pakai sabun setelah selesai kerja di lab, bahkan kalau kamu pakai sarung tangan. Kebersihan pangkal kesehatan!",
-  "Jangan pernah mencampur bahan kimia sembarangan. Reaksi tak terduga bisa jadi bencana. 'Kepo' di lab bisa bahaya!",
-  "Jangan pernah makan atau minum di dalam lab. Sisa bahan kimia bisa aja nempel di makananmu, lho!",
-  "Safety Googles itu bukan untuk gaya-gayaan. Pakai saat menangani bahan kimia dengan potensi cipratan, partikel berterbangan dan yang menghasilkan uap.",
+  "Jangan pipet pake mulut, selalu pakai pipet bulb.",
+  "Selalu baca label MSDS sebelum pakai bahan kimia baru. Kenali musuhmu sebelum berperang!",
+  "Label bahan itu penting, jangan nebak-nebak.",
+  "Kalau tumpah, lap dulu pake pad yang sesuai dan laporkan.",
+  "Rambut panjang? Ikat ke belakang! Biar nggak jadi 'sumbu' dadakan pas deket api.",
+  "Pakai sepatu tertutup, ya! Sandal jepit emang nyaman, tapi nggak bakal melindungimu dari pecahan kaca atau tumpahan asam.",
+  "Cuci tangan pakai sabun setelah selesai kerja di lab, bahkan kalau kamu pakai sarung tangan. Kebersihan pangkal kesehatan!",
+  "Jangan pernah mencampur bahan kimia sembarangan. Reaksi tak terduga bisa jadi bencana. 'Kepo' di lab bisa bahaya!",
+  "Jangan pernah makan atau minum di dalam lab. Sisa bahan kimia bisa aja nempel di makananmu, lho!",
+  "Safety Googles itu bukan untuk gaya-gayaan. Pakai saat menangani bahan kimia dengan potensi cipratan, partikel berterbangan dan yang menghasilkan uap.",
 ];
 
 /* Data APD */
 const APD_DATA = [
-  {title:"Kacamata Safety", desc:"Ini 'kacamata super' buat di lab. Melindungi mata dari percikan bahan kimia, debu, atau benda tajam. Wajib dipakai, karena mata kamu cuma ada sepasang!", imagePath:"assets/apd/goggles.png"},
-    {title:"Sarung Tangan Nitril", desc:"Bahan kimia tertentu tidak boleh sentuh langsung. Selalu gunakan sarung tangan ya saat melakukan pengujian", imagePath:"assets/apd/gloves.png"},
-    {title:"Jas Laboratorium", desc:"Jas lab ini bukan buat gaya-gayaan, tapi sebagai 'tameng' pertama buat badan dan pakaianmu dari tumpahan atau percikan bahan kimia. Anggap aja ini jubah superhero-mu di lab.", imagePath:"assets/apd/jaslab.png"},
-    {title:"Respirator", desc:"Kalau kamu kerja dengan gas, uap, debu atau bahan kimia berbahaya, ini penyelamatmu. Respirator menyaring udara yang kamu hirup, jadi paru-parumu tetap aman dan sehat.", imagePath:"assets/apd/resp.png"},
-    {title:"Sepatu Safety", desc:"sepatu tertutup wajib dipakai untuk melindungi kaki dari kecelakaan dan tumpahan bahan kimia berbahaya, seperti tumpahan cairan, benda jatuh, atau pecahan kaca.", imagePath:"assets/apd/sepatu.png"},
-  ];
-
-// START: DATA BARU UNTUK FITUR TOP 5
-const TOP_USED_IDS = [
-    "h2so4",  // Asam Sulfat
-    "naoh",   // Natrium Hidroksida
-    "hgso4",  // Merkuri(II) sulfat
-    "phenol", // Larutan Fenol
-    "hipoklorit" // Natrium Hipoklorit
-];
-// END: DATA BARU UNTUK FITUR TOP 5
+  {title:"Kacamata Safety", desc:"Ini 'kacamata super' buat di lab. Melindungi mata dari percikan bahan kimia, debu, atau benda tajam. Wajib dipakai, karena mata kamu cuma ada sepasang!", imagePath:"assets/apd/goggles.png"},
+    {title:"Sarung Tangan Nitril", desc:"Bahan kimia tertentu tidak boleh sentuh langsung. Selalu gunakan sarung tangan ya saat melakukan pengujian", imagePath:"assets/apd/gloves.png"},
+    {title:"Jas Laboratorium", desc:"Jas lab ini bukan buat gaya-gayaan, tapi sebagai 'tameng' pertama buat badan dan pakaianmu dari tumpahan atau percikan bahan kimia. Anggap aja ini jubah superhero-mu di lab.", imagePath:"assets/apd/jaslab.png"},
+    {title:"Respirator", desc:"Kalau kamu kerja dengan gas, uap, debu atau bahan kimia berbahaya, ini penyelamatmu. Respirator menyaring udara yang kamu hirup, jadi paru-parumu tetap aman dan sehat.", imagePath:"assets/apd/resp.png"},
+    {title:"Sepatu Safety", desc:"sepatu tertutup wajib dipakai untuk melindungi kaki dari kecelakaan dan tumpahan bahan kimia berbahaya, seperti tumpahan cairan, benda jatuh, atau pecahan kaca.", imagePath:"assets/apd/sepatu.png"},
+  ];
 
 /* ====== App code (rendering + events) ====== */
 const msdsGrid = document.getElementById('msdsGrid');
@@ -376,203 +360,145 @@ let DATA = MSDS_DATA.slice(); // if you fetch external JSON, assign it here
 
 /* utility: unique testing values */
 function getAllTests(data){
-  const s = new Set();
-  data.forEach(d=>d.testing.forEach(t=>s.add(t)));
-  return Array.from(s).sort();
+  const s = new Set();
+  data.forEach(d=>d.testing.forEach(t=>s.add(t)));
+  return Array.from(s).sort();
 }
 
 /* render cards */
 function renderGrid(data){
-  msdsGrid.innerHTML = '';
-  if(!data.length){
-    msdsGrid.innerHTML = '<div class="small">Tidak ada bahan.</div>';
-    return;
-  }
-  data.forEach(item=>{
-    const div = document.createElement('div');
-    div.className = 'card msds-card';
-    div.setAttribute('data-id', item.id);
-    // Tambahkan event listener ke CARD untuk membuka modal
-    div.addEventListener('click', (e) => {
-        // Hanya buka modal jika yang diklik bukan tombol di dalam card
-        if (!e.target.closest('button')) { 
-            openModal(item);
-        }
-    });
-    div.innerHTML = `
-      <h3>${item.name}</h3>
-      <div class="small subtitle">(${item.formula || '-'})</div>
-      <div class="formula">${item.formula||''}</div>
-      <div class="tags">${item.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
-      <div style="margin-top:10px"><button class="btn-primary" data-id="${item.id}">Lihat MSDS</button></div>
-    `;
-    
-    // Perbaikan: tambahkan event listener ke tombol untuk mencegah bubbling (klik ganda)
-    const button = div.querySelector('button');
-    button.addEventListener('click', (e) => {
-        e.stopPropagation(); // Stop event agar tidak mengenai div.card
-        openModal(item);
-    });
-
-    msdsGrid.appendChild(div);
-  });
+  msdsGrid.innerHTML = '';
+  if(!data.length){
+    msdsGrid.innerHTML = '<div class="small">Tidak ada bahan.</div>';
+    return;
+  }
+  data.forEach(item=>{
+    const div = document.createElement('div');
+    div.className = 'card msds-card';
+    div.setAttribute('data-id', item.id);
+    div.innerHTML = `
+      <h3>${item.name}</h3>
+      <div class="small subtitle">(${item.formula || '-'})</div>
+      <div class="formula">${item.formula||''}</div>
+      <div class="tags">${item.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
+      <div style="margin-top:10px"><button class="btn-primary" data-id="${item.id}">Lihat MSDS</button></div>
+    `;
+    msdsGrid.appendChild(div);
+  });
 }
 /* render tests list as clickable cards */
 function renderTests(tests){
-  testsList.innerHTML='';
-  tests.forEach(t=>{
-    const c=document.createElement('div'); c.className='card';
-    c.innerHTML=`<h3>${t}</h3><div class="small">Klik untuk melihat bahan terkait</div>`;
-    c.addEventListener('click', ()=> {
-      showSection('msds');
-      filterTest.value = t;
-      applyFilters();
-    });
-    testsList.appendChild(c);
-  });
+  testsList.innerHTML='';
+  tests.forEach(t=>{
+    const c=document.createElement('div'); c.className='card';
+    c.innerHTML=`<h3>${t}</h3><div class="small">Klik untuk melihat bahan terkait</div>`;
+    c.addEventListener('click', ()=> {
+      showSection('msds');
+      filterTest.value = t;
+      applyFilters();
+    });
+    testsList.appendChild(c);
+  });
 }
 /* render GHS list (static with descriptions) */
 function renderGHS(){
-  ghsList.innerHTML='';
-  PIKTOGRAMS.forEach(p=>{
-    const c=document.createElement('div'); c.className='card';
-    
-    c.innerHTML=`
-      <div style="text-align:center; margin-bottom: 10px;">
-          <img 
-              src="${p.imagePath}" 
-              alt="Piktogram ${p.name}" 
-              style="height: 60px; width: 60px; object-fit: contain; margin-bottom: 8px;"
-          >
-          <h3 style="font-size: 18px; margin: 0;">${p.name}</h3>
-      </div>
-      <div class="small">${p.slang}</div>
-    `;
-    
-    ghsList.appendChild(c);
-  });
+  ghsList.innerHTML='';
+  PIKTOGRAMS.forEach(p=>{
+    const c=document.createElement('div'); c.className='card';
+    
+    // Ganti BARIS INI (c.innerHTML)
+    c.innerHTML=`
+      <div style="text-align:center; margin-bottom: 10px;">
+          <img 
+              src="${p.imagePath}" 
+              alt="Piktogram ${p.name}" 
+              style="height: 60px; width: 60px; object-fit: contain; margin-bottom: 8px;"
+          >
+          <h3 style="font-size: 18px; margin: 0;">${p.name}</h3>
+      </div>
+      <div class="small">${p.slang}</div>
+    `;
+    
+    ghsList.appendChild(c);
+  });
 }
 /* render APD list (example) */
 function renderAPD(){
- apdList.innerHTML='';
+ apdList.innerHTML='';
   APD_DATA.forEach(a=>{
     const c=document.createElement('div'); c.className='card';
     c.innerHTML=`
-      <div style="text-align:center; margin-bottom: 10px;">
-          <img 
-              src="${a.imagePath}" 
-              alt="Gambar ${a.title}" 
-              style="height: 70px; width: 70px; object-fit: contain; margin-bottom: 8px;"
-          >
-          <h3 style="font-size: 16px; margin: 0 0 5px 0;">${a.title}</h3>
-      </div>
-            <div class="small">${a.desc}</div>
+      <div style="text-align:center; margin-bottom: 10px;">
+          <img 
+              src="${a.imagePath}" 
+              alt="Gambar ${a.title}" 
+              style="height: 70px; width: 70px; object-fit: contain; margin-bottom: 8px;"
+          >
+          <h3 style="font-size: 16px; margin: 0 0 5px 0;">${a.title}</h3>
+      </div>
+            <div class="small">${a.desc}</div>
     `;
     apdList.appendChild(c);
   });
 }
 
-// FUNGSI BARU UNTUK MERENDER TOP 5 (SUDAH DIPERBAIKI)
-function renderTopUsed(){
-    const topContainer = document.getElementById('topUsedList');
-    if (!topContainer) return; 
-
-    // Ambil data lengkap dari MSDS_DATA menggunakan ID
-    const topItems = TOP_USED_IDS
-        .map(id => DATA.find(d => d.id === id))
-        .filter(item => item !== undefined); 
-
-    topContainer.innerHTML = '';
-    
-    // Render item sebagai list
-    topItems.forEach((item, index) => {
-        const li = document.createElement('li');
-        // Styling LI: Tambahkan pointer, pemisah, dan tata letak
-        li.style.cssText = 'padding: 8px 0; border-bottom: 1px solid #eee; cursor: pointer; display:flex; justify-content:space-between; align-items:center;';
-        
-        // Pindahkan data-id ke LI agar seluruh baris bisa diklik
-        li.setAttribute('data-id', item.id);
-        
-        li.innerHTML = `
-            <div style="font-weight: 600;">
-                #${index + 1}. ${item.name} 
-                <span class="small">(${item.formula||'-'})</span>
-            </div>
-            <span class="small" style="color: var(--accent); font-weight: 600;">
-                Lihat MSDS →
-            </span>
-        `;
-        topContainer.appendChild(li);
-    });
-}
-// END: FUNGSI BARU UNTUK MERENDER TOP 5
-
 /* fill filter dropdown */
 function fillTestFilter(){
-  const all = getAllTests(DATA);
-  filterTest.innerHTML = '<option value="">Semua</option>';
-  all.forEach(t=>{
-    const opt = document.createElement('option'); opt.value=t; opt.textContent=t;
-    filterTest.appendChild(opt);
-  });
+  const all = getAllTests(DATA);
+  filterTest.innerHTML = '<option value="">Semua</option>';
+  all.forEach(t=>{
+    const opt = document.createElement('option'); opt.value=t; opt.textContent=t;
+    filterTest.appendChild(opt);
+  });
 }
 
 /* search + filter + sort pipeline */
 function applyFilters(){
-  let list = DATA.slice();
-  const q = searchInput.value.trim().toLowerCase();
-  if(q){
-    list = list.filter(item=>{
-      return (item.name && item.name.toLowerCase().includes(q)) ||
-             (item.formula && item.formula.toLowerCase().includes(q)) ||
-             (item.testing && item.testing.join(' ').toLowerCase().includes(q));
-    });
-  }
-  const f = filterTest.value;
-  if(f){
-    list = list.filter(item=> item.testing.includes(f) );
-  }
-  const sortVal = (sortSelect2 && sortSelect2.value) || (sortSelect && sortSelect.value) || 'name';
-  if(sortVal === 'name'){
-    list.sort((a,b)=> a.name.localeCompare(b.name));
-  } else {
-    list.sort((a,b)=> (a.testing[0]||'').localeCompare(b.testing[0]||''));
-  }
-  renderGrid(list);
+  let list = DATA.slice();
+  const q = searchInput.value.trim().toLowerCase();
+  if(q){
+    list = list.filter(item=>{
+      return (item.name && item.name.toLowerCase().includes(q)) ||
+             (item.formula && item.formula.toLowerCase().includes(q)) ||
+             (item.testing && item.testing.join(' ').toLowerCase().includes(q));
+    });
+  }
+  const f = filterTest.value;
+  if(f){
+    list = list.filter(item=> item.testing.includes(f) );
+  }
+  const sortVal = (sortSelect2 && sortSelect2.value) || (sortSelect && sortSelect.value) || 'name';
+  if(sortVal === 'name'){
+    list.sort((a,b)=> a.name.localeCompare(b.name));
+  } else {
+    list.sort((a,b)=> (a.testing[0]||'').localeCompare(b.testing[0]||''));
+  }
+  renderGrid(list);
 }
 
 /* handle clicks on MSDS buttons (open modal) */
-// PERBAIKAN: Ubah event listener agar bisa menangkap klik pada LI (Top 5) dan BUTTON (MSDS Grid)
 document.addEventListener('click', function(e){
-  // Cek apakah yang diklik adalah BUTTON dengan data-id ATAU LI (list item) dengan data-id
-  const targetElement = e.target.closest('[data-id]');
-  if(targetElement){
-    const tagName = targetElement.tagName;
-    // Jika diklik adalah LI (untuk Top 5) atau BUTTON (untuk MSDS Grid)
-    if(tagName === 'LI' || tagName === 'BUTTON'){
-        const id = targetElement.getAttribute('data-id');
-        const item = DATA.find(d=>d.id===id);
-        if(item){
-            openModal(item);
-        }
+  const btn = e.target.closest('button[data-id]');
+  if(btn){
+    const id = btn.getAttribute('data-id');
+    const item = DATA.find(d=>d.id===id);
+    if(item){
+      openModal(item);
     }
-  }
+  }
 });
 
 /* modal open */
 function openModal(item){
-  modalTitle.textContent = item.name;
-  // Perbaikan: periksa apakah piktogram adalah array atau string
-  const piktogramDisplay = Array.isArray(item.piktogram) ? item.piktogram.join(', ') : item.piktogram || '-';
-  
-  const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
-  <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
-  <div><strong>Piktogram:</strong> ${piktogramDisplay}</div>
-  <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>`;
-  document.getElementById('modalMeta').innerHTML = meta;
-  pdfViewer.src = item.pdf; // must be path to pdf in repo
-  downloadLink.href = item.pdf;
-  modal.style.display = 'flex';
+  modalTitle.textContent = item.name;
+  const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
+  <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
+  <div><strong>Piktogram:</strong> ${item.piktogram||'-'}</div>
+  <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>`;
+  document.getElementById('modalMeta').innerHTML = meta;
+  pdfViewer.src = item.pdf; // must be path to pdf in repo
+  downloadLink.href = item.pdf;
+  modal.style.display = 'flex';
 }
 
 /* close modal */
@@ -581,36 +507,36 @@ modal.addEventListener('click', (ev)=>{ if(ev.target === modal) modal.style.disp
 
 /* Nav / routing (simple) */
 function showSection(id){
-  ['home','msds','pengujian','ghs','apd'].forEach(s=>{
-    const el = document.getElementById(s);
-    if(el) el.style.display = (s===id)?'block':'none';
-  });
-  // highlight menu
-  document.querySelectorAll('nav a.navlink').forEach(a=>{
-    a.classList.toggle('active', a.getAttribute('data-target')===id);
-  });
-  // scroll to top a bit
-  window.scrollTo({top:0, behavior:'smooth'});
+  ['home','msds','pengujian','ghs','apd'].forEach(s=>{
+    const el = document.getElementById(s);
+    if(el) el.style.display = (s===id)?'block':'none';
+  });
+  // highlight menu
+  document.querySelectorAll('nav a.navlink').forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('data-target')===id);
+  });
+  // scroll to top a bit
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-  /* START OF NAVIGATION FIX: Tambahkan Event Listener untuk tautan menu */
+  /* START OF NAVIGATION FIX: Tambahkan Event Listener untuk tautan menu */
 document.querySelectorAll('nav a.navlink').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Mencegah browser melompat ke #ID di URL secara default
-        e.preventDefault(); 
-        const targetId = this.getAttribute('data-target');
-        if (targetId) {
-            // Panggil fungsi showSection yang sudah ada
-            showSection(targetId);
-        }
-    });
+    link.addEventListener('click', function(e) {
+        // Mencegah browser melompat ke #ID di URL secara default
+        e.preventDefault(); 
+        const targetId = this.getAttribute('data-target');
+        if (targetId) {
+            // Panggil fungsi showSection yang sudah ada
+            showSection(targetId);
+        }
+    });
 });
 /* END OF NAVIGATION FIX */
-  
+  
 /* search button on home goes to msds with query */
 goMsds.addEventListener('click', ()=>{
-  showSection('msds');
-  applyFilters();
+  showSection('msds');
+  applyFilters();
 });
 
 /* wire controls */
@@ -620,51 +546,50 @@ filterTest.addEventListener('change', applyFilters);
 
 /* Piktogram / Tips of the day (daily rotating by date) */
 function dailyIndex(length){
-  const d = new Date();
-  const days = Math.floor(d/ (1000*60*60*24) );
-  return days % length;
+  const d = new Date();
+  const days = Math.floor(d/ (1000*60*60*24) );
+  return days % length;
 }
 function renderPiktogramAndTips(){
-  const pi = dailyIndex(PIKTOGRAMS.length);
-  const ti = dailyIndex(TIPS.length);
-  const p = PIKTOGRAMS[pi];
-  piktogramOfDay.innerHTML = `
-      <div style="text-align:center; padding: 10px 0;">
-          <img 
-              src="${p.imagePath}" 
-              alt="Piktogram ${p.name}" 
-              style="height: 40px; width: 40px; object-fit: contain; margin-bottom: 5px;"
-          >
-          <strong style="font-size: 15px; display: block;">${p.name}</strong>
-      </div>
-      <div class="small" style="margin-top:5px;">${p.slang}</div>
-  `;
-  
+  const pi = dailyIndex(PIKTOGRAMS.length);
+  const ti = dailyIndex(TIPS.length);
+  const p = PIKTOGRAMS[pi];
+  piktogramOfDay.innerHTML = `
+      <div style="text-align:center; padding: 10px 0;">
+          <img 
+              src="${p.imagePath}" 
+              alt="Piktogram ${p.name}" 
+              style="height: 40px; width: 40px; object-fit: contain; margin-bottom: 5px;"
+          >
+          <strong style="font-size: 15px; display: block;">${p.name}</strong>
+      </div>
+      <div class="small" style="margin-top:5px;">${p.slang}</div>
+  `;
+  
   tipsOfDay.textContent = TIPS[ti];
 }
 
 /* init app */
 function init(){
-  // if you want remote JSON, replace with fetch('data/msds.json').then(r=>r.json()).then(d=>{DATA=d; ...})
-  renderGrid(DATA);
-  const tests=getAllTests(DATA);
-  renderTests(tests);
-  renderGHS();
-  renderAPD();
-  fillTestFilter();
-  renderPiktogramAndTips();
-  // Panggil fungsi renderTopUsed di sini
-  renderTopUsed(); 
-  showSection('home');
+  // if you want remote JSON, replace with fetch('data/msds.json').then(r=>r.json()).then(d=>{DATA=d; ...})
+  renderGrid(DATA);
+  const tests=getAllTests(DATA);
+  renderTests(tests);
+  renderGHS();
+  renderAPD();
+  fillTestFilter();
+  renderPiktogramAndTips();
+  showSection('home');
 }
 init();
 
 /* optional: if you host JSON externally (e.g. data/msds.json), uncomment and use below:
 fetch('data/msds.json').then(r=>r.json()).then(j=>{
-  DATA=j;
-  init();
+  DATA=j;
+  init();
 });
 */
 
 </script>
+</body>
 </html>
