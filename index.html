@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>SIMBA — Sistem Informasi MSDS Bahan Kimia</title>
+<!-- Simple favicon -->
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <style>
 /* ====== Basic CSS (responsive + modern card design) ====== */
@@ -114,7 +115,8 @@ nav a.active{color:var(--accent)}
 </head>
 <body>
 <div class="container">
-    <header class="header">
+  <!-- HEADER -->
+  <header class="header">
     <a class="brand" href="#home" id="nav-home">
   <div class="logo" aria-hidden>
         <img src="assets/gambar/LogoSImba.png" alt="Logo SIMBA" id="png-logo">
@@ -132,50 +134,49 @@ nav a.active{color:var(--accent)}
 
   </header>
 
-    <section id="home" class="hero">
-    <h2>Selamat datang di SIMBA</h2>
-    <p class="small">Sistem Informasi MSDS Bahan Kimia — cari informasi MSDS, piktogram, dan APD dengan cepat & aman.</p>
+  <!-- ======= HOME ======= -->
+  <section id="home" class="hero">
+  <h2>Selamat datang di SIMBA</h2>
+  <p class="small">Sistem Informasi MSDS Bahan Kimia — cari informasi MSDS, piktogram, dan APD dengan cepat & aman.</p>
 
-    <div class="search-wrap" style="margin-top:14px">
-      <div class="search-box">
-        <input id="searchInput" type="search" placeholder="Cari nama bahan kimia / rumus / pengujian..." aria-label="search"/>
-      </div>
-      <div class="controls">
-        <select id="sortSelect" class="select-inline">
-          <option value="name">Urut: Nama (A–Z)</option>
-          <option value="test">Urut: Pengujian</option>
-        </select>
-        <button id="goMsds" class="btn-primary">Cari</button>
-      </div>
-    </div>
+  <div class="search-wrap" style="margin-top:14px">
+    <div class="search-box">
+      <input id="searchInput" type="search" placeholder="Cari nama bahan kimia / rumus / pengujian..." aria-label="search"/>
+    </div>
+    <div class="controls">
+      <select id="sortSelect" class="select-inline">
+        <option value="name">Urut: Nama (A–Z)</option>
+        <option value="test">Urut: Pengujian</option>
+      </select>
+      <button id="goMsds" class="btn-primary">Cari</button>
+    </div>
+  </div>
 
-        <div style="margin-top:18px;">
-                <div style="display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap;">
-            
-                        <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-                <h4>Piktogram GHS of the Day</h4>
-                <div id="piktogramOfDay" class="small">Memuat...</div>
-            </div>
+  <div class="card" style="margin-top: 18px;">
+    <h4>🔝 Top 5 Bahan Kimia yang Paling Sering Digunakan</h4>
+    <ul id="topUsedList" style="list-style: none; padding: 0; margin: 0;">
+      </ul>
+  </div>
 
-                        <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-                <h4>Tips K3 of the Day</h4>
-                <div id="tipsOfDay" class="small">Memuat...</div>
-            </div>
-        </div>
-        
-                <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
-            <h4>Top 5 Bahan Kimia Sering Digunakan</h4>
-            <ul id="topUsedList" style="list-style:none; padding:0; margin:0;">
-                            </ul>
-        </div>
-    </div>
-      </section>
+  <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
+      <h4>Piktogram GHS of the Day</h4>
+      <div id="piktogramOfDay" class="small">Memuat...</div>
+    </div>
+    <div style="flex:1;min-width:240px;background:#fff;padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)">
+      <h4>Tips K3 of the Day</h4>
+      <div id="tipsOfDay" class="small">Memuat...</div>
+    </div>
+  </div>
+</section>
 
-    <section id="msds" style="display:none; margin-top:18px">
+  <!-- ======= MSDS (cards) ======= -->
+  <section id="msds" style="display:none; margin-top:18px">
     <h2>Database MSDS</h2>
     <p class="small">Klik kartu untuk melihat MSDS lengkap (buka & download PDF).</p>
 
-        <div class="row" style="margin-top:12px;">
+    <!-- filters row -->
+    <div class="row" style="margin-top:12px;">
       <label class="small">Filter Pengujian:</label>
       <select id="filterTest" class="select-inline">
         <option value="">Semua</option>
@@ -190,25 +191,29 @@ nav a.active{color:var(--accent)}
     <div id="msdsGrid" class="grid" style="margin-top:14px"></div>
   </section>
 
-    <section id="pengujian" style="display:none;margin-top:18px">
+  <!-- ======= PENGUJIAN ======= -->
+  <section id="pengujian" style="display:none;margin-top:18px">
     <h2>Pengujian</h2>
     <p class="small">Pilih kategori pengujian untuk melihat bahan yang digunakan.</p>
     <div id="testsList" class="grid" style="margin-top:12px"></div>
   </section>
 
-    <section id="ghs" style="display:none;margin-top:18px">
+  <!-- ======= PIKTOGRAM ======= -->
+  <section id="ghs" style="display:none;margin-top:18px">
     <h2>Piktogram GHS</h2>
     <p class="small">Kenali simbol-simbol bahaya universal ini! GHS (Globally Harmonized System) diciptakan agar kita semua, di mana pun, bisa langsung 'ngeh' sama bahaya suatu bahan kimia. Anggap aja ini emoji, tapi versi keselamatan.</p>
     <div id="ghsList" style="margin-top:12px" class="grid"></div>
   </section>
 
-    <section id="apd" style="display:none;margin-top:18px">
+  <!-- ======= APD ======= -->
+  <section id="apd" style="display:none;margin-top:18px">
     <h2>APD Wajib di Laboratorium</h2>
     <p class="small">Di lab, keselamatan itu nomor satu! Alat Pelindung Diri (APD) atau Personal Protective Equipment (PPE) adalah 'armor' yang melindungimu dari bahaya tak terlihat. Jangan anggap remeh, yuk kenali para pahlawan pelindung ini!</p>
     <div id="apdList" style="margin-top:12px" class="grid"></div>
   </section>
 </div>
 
+<!-- Modal detail -->
 <div id="modal" class="modal">
   <div class="box">
     <header>
@@ -387,6 +392,13 @@ function renderGrid(data){
     const div = document.createElement('div');
     div.className = 'card msds-card';
     div.setAttribute('data-id', item.id);
+    // Tambahkan event listener ke CARD untuk membuka modal
+    div.addEventListener('click', (e) => {
+        // Hanya buka modal jika yang diklik bukan tombol di dalam card
+        if (!e.target.closest('button')) { 
+            openModal(item);
+        }
+    });
     div.innerHTML = `
       <h3>${item.name}</h3>
       <div class="small subtitle">(${item.formula || '-'})</div>
@@ -394,6 +406,14 @@ function renderGrid(data){
       <div class="tags">${item.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
       <div style="margin-top:10px"><button class="btn-primary" data-id="${item.id}">Lihat MSDS</button></div>
     `;
+    
+    // Perbaikan: tambahkan event listener ke tombol untuk mencegah bubbling (klik ganda)
+    const button = div.querySelector('button');
+    button.addEventListener('click', (e) => {
+        e.stopPropagation(); // Stop event agar tidak mengenai div.card
+        openModal(item);
+    });
+
     msdsGrid.appendChild(div);
   });
 }
@@ -417,7 +437,6 @@ function renderGHS(){
   PIKTOGRAMS.forEach(p=>{
     const c=document.createElement('div'); c.className='card';
     
-    // Ganti BARIS INI (c.innerHTML)
     c.innerHTML=`
       <div style="text-align:center; margin-bottom: 10px;">
           <img 
@@ -453,10 +472,10 @@ function renderAPD(){
   });
 }
 
-// FUNGSI BARU UNTUK MERENDER TOP 5 DI BERANDA
+// FUNGSI BARU UNTUK MERENDER TOP 5 (SUDAH DIPERBAIKI)
 function renderTopUsed(){
     const topContainer = document.getElementById('topUsedList');
-    if (!topContainer) return;
+    if (!topContainer) return; 
 
     // Ambil data lengkap dari MSDS_DATA menggunakan ID
     const topItems = TOP_USED_IDS
@@ -468,16 +487,25 @@ function renderTopUsed(){
     // Render item sebagai list
     topItems.forEach((item, index) => {
         const li = document.createElement('li');
-        // Styling untuk tampilan yang rapi (pemisah dan tata letak)
-        li.style.cssText = 'padding: 8px 0; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center;';
+        // Styling LI: Tambahkan pointer, pemisah, dan tata letak
+        li.style.cssText = 'padding: 8px 0; border-bottom: 1px solid #eee; cursor: pointer; display:flex; justify-content:space-between; align-items:center;';
+        
+        // Pindahkan data-id ke LI agar seluruh baris bisa diklik
+        li.setAttribute('data-id', item.id);
         
         li.innerHTML = `
-            <div style="font-weight: 600;">#${index + 1}. ${item.name} <span class="small">(${item.formula||'-'})</span></div>
-                        <button class="btn-primary small" data-id="${item.id}" style="padding: 6px 10px; font-size: 12px; cursor: pointer;">Lihat MSDS</button>
+            <div style="font-weight: 600;">
+                #${index + 1}. ${item.name} 
+                <span class="small">(${item.formula||'-'})</span>
+            </div>
+            <span class="small" style="color: var(--accent); font-weight: 600;">
+                Lihat MSDS →
+            </span>
         `;
         topContainer.appendChild(li);
     });
 }
+// END: FUNGSI BARU UNTUK MERENDER TOP 5
 
 /* fill filter dropdown */
 function fillTestFilter(){
@@ -514,23 +542,32 @@ function applyFilters(){
 }
 
 /* handle clicks on MSDS buttons (open modal) */
+// PERBAIKAN: Ubah event listener agar bisa menangkap klik pada LI (Top 5) dan BUTTON (MSDS Grid)
 document.addEventListener('click', function(e){
-  const btn = e.target.closest('button[data-id]');
-  if(btn){
-    const id = btn.getAttribute('data-id');
-    const item = DATA.find(d=>d.id===id);
-    if(item){
-      openModal(item);
-    }
+  // Cek apakah yang diklik adalah BUTTON dengan data-id ATAU LI (list item) dengan data-id
+  const targetElement = e.target.closest('[data-id]');
+  if(targetElement){
+    const tagName = targetElement.tagName;
+    // Jika diklik adalah LI (untuk Top 5) atau BUTTON (untuk MSDS Grid)
+    if(tagName === 'LI' || tagName === 'BUTTON'){
+        const id = targetElement.getAttribute('data-id');
+        const item = DATA.find(d=>d.id===id);
+        if(item){
+            openModal(item);
+        }
+    }
   }
 });
 
 /* modal open */
 function openModal(item){
   modalTitle.textContent = item.name;
+  // Perbaikan: periksa apakah piktogram adalah array atau string
+  const piktogramDisplay = Array.isArray(item.piktogram) ? item.piktogram.join(', ') : item.piktogram || '-';
+  
   const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
   <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
-  <div><strong>Piktogram:</strong> ${ Array.isArray(item.piktogram) ? item.piktogram.join(', ') : item.piktogram || '-' }</div>
+  <div><strong>Piktogram:</strong> ${piktogramDisplay}</div>
   <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>`;
   document.getElementById('modalMeta').innerHTML = meta;
   pdfViewer.src = item.pdf; // must be path to pdf in repo
@@ -616,8 +653,8 @@ function init(){
   renderAPD();
   fillTestFilter();
   renderPiktogramAndTips();
-  // Panggil fungsi baru di sini
-  renderTopUsed(); 
+  // Panggil fungsi renderTopUsed di sini
+  renderTopUsed(); 
   showSection('home');
 }
 init();
@@ -630,5 +667,4 @@ fetch('data/msds.json').then(r=>r.json()).then(j=>{
 */
 
 </script>
-</body>
 </html>
