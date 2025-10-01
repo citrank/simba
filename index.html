@@ -744,6 +744,7 @@ const downloadLink = document.getElementById('downloadLink');
 const goMsds = document.getElementById('goMsds');
 const piktogramOfDay = document.getElementById('piktogramOfDay');
 const tipsOfDay = document.getElementById('tipsOfDay');
+const BASE_URL = 'https://citrank.github.io/simba/index.html';
 
 let DATA = MSDS_DATA.slice(); // if you fetch external JSON, assign it here
 
@@ -878,16 +879,23 @@ document.addEventListener('click', function(e){
 });
 
 /* modal open */
-function openModal(item){
-  modalTitle.textContent = item.name;
-  const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
-  <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
-  <div><strong>Piktogram:</strong> ${item.piktogram||'-'}</div>
-  <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>`;
-  document.getElementById('modalMeta').innerHTML = meta;
-  pdfViewer.src = item.pdf; // must be path to pdf in repo
-  downloadLink.href = item.pdf;
-  modal.style.display = 'flex';
+function openModal(item, isFromHash = false){ 
+    
+    // BARIS BARU: Update URL Hash jika modal dibuka dari tombol (bukan dari URL hash)
+    if (!isFromHash) {
+         // Ini membuat URL menjadi '.../index.html#msds/ID_BAHAN'
+        window.location.hash = `#msds/${item.id}`; 
+    }
+    
+    modalTitle.textContent = item.name;
+    const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
+    <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
+    <div><strong>Piktogram:</strong> ${item.piktogram||'-'}</div>
+    <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>`;
+    document.getElementById('modalMeta').innerHTML = meta;
+    pdfViewer.src = item.pdf; // must be path to pdf in repo
+    downloadLink.href = item.pdf;
+    modal.style.display = 'flex';
 }
 
 /* close modal */
@@ -921,6 +929,35 @@ document.querySelectorAll('nav a.navlink').forEach(link => {
     });
 });
 /* END OF NAVIGATION FIX */
+
+  /* === FUNGSI QR CODE ROUTING === */
+
+// Fungsi baru untuk menangani ID di URL (yang akan diakses Kode QR)
+function handleHashRoute() {
+    // Pastikan modal tertutup sebelum memproses rute baru
+    modal.style.display = 'none'; 
+    
+    const hash = window.location.hash; // Misal: #msds/naoh
+    
+    // Cek apakah URL hash memiliki format rute MSDS yang kita inginkan
+    if (hash.startsWith('#msds/')) {
+        // Mendapatkan ID bahan kimia dari hash, misal 'naoh'
+        const chemicalId = hash.substring(hash.indexOf('/') + 1); 
+        
+        const item = DATA.find(d => d.id === chemicalId);
+
+        if (item) {
+            // 1. Tampilkan bagian MSDS (penting agar navigasi menu aktif)
+            showSection('msds'); 
+            // 2. Langsung buka modal detail, dengan flag 'isFromHash = true'
+            openModal(item, true); 
+            return true; // Berhasil membuka modal dari hash
+        }
+    }
+    return false; // Gagal memproses hash atau tidak ada hash MSDS
+}
+
+/* === END QR CODE ROUTING === */
   
 /* search button on home goes to msds with query */
 goMsds.addEventListener('click', ()=>{
@@ -969,6 +1006,18 @@ function init(){
   fillTestFilter();
   renderPiktogramAndTips();
   showSection('home');
+}
+  fillTestFilter();
+  renderPiktogramAndTips(); // <--- Pastikan fungsi ini ada
+
+  // PENTING: Cek URL hash. Jika ada ID MSDS, modal akan langsung terbuka.
+  if (!handleHashRoute()) {
+    // Jika tidak ada ID MSDS di hash, tampilkan Beranda default
+    showSection('home');
+  }
+
+  // Tambahkan event listener agar modal terbuka jika user mengganti URL hash secara manual
+  window.addEventListener('hashchange', handleHashRoute); // <--- TAMBAH INI
 }
 init();
 
