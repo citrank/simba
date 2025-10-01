@@ -851,7 +851,9 @@ function getExpColor(expDateStr) {
     if (!expDateStr) return 'color-black'; // Jika tidak ada data, anggap expired/tidak diketahui
 
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
     const expDate = new Date(expDateStr);
+    exDate.setHours(0, 0, 0, 0);
     
     // Perbedaan dalam milidetik
     const diffMs = expDate - today;
@@ -1020,32 +1022,22 @@ function openModal(item, isFromHash = false){
     
     // BARIS BARU: Update URL Hash jika modal dibuka dari tombol (bukan dari URL hash)
     if (!isFromHash) {
-         // Ini membuat URL menjadi '.../index.html#msds/ID_BAHAN'
         window.location.hash = `#msds/${item.id}`; 
     }
     
     modalTitle.textContent = item.name;
-    const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
+    const expDateDisplay = item.expDate ? new Date(item.expDate).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Tidak Ada Data';
+    const meta = `
+    <div><strong>Rumus:</strong> ${item.formula||'-'}</div>
     <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
     <div><strong>Piktogram:</strong> ${item.piktogram||'-'}</div>
-    <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>`;
+    <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>
+    <div><strong>Kedaluwarsa:</strong> ${expDateDisplay}</div>`;
+  
     document.getElementById('modalMeta').innerHTML = meta;
     pdfViewer.src = item.pdf; // must be path to pdf in repo
     downloadLink.href = item.pdf;
     modal.style.display = 'flex';
-  // Format tanggal expired
-    const expDateDisplay = item.expDate ? new Date(item.expDate).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Tidak Ada Data';
-
-    modalTitle.textContent = item.name;
-    // Tambahkan info EXP DATE ke metadata
-    const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
-    <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
-    <div><strong>Piktogram:</strong> ${item.piktogram||'-'}</div>
-    <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>
-    <div><strong>Kedaluwarsa:</strong> ${expDateDisplay}</div>`; // <-- TAMBAH BARIS INI
-    
-    document.getElementById('modalMeta').innerHTML = meta;
-    // ... (kode modal lainnya) ...
 }
 
 /* close modal */
