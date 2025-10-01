@@ -916,7 +916,6 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-  /* START OF NAVIGATION FIX: Tambahkan Event Listener untuk tautan menu */
 document.querySelectorAll('nav a.navlink').forEach(link => {
     link.addEventListener('click', function(e) {
         // Mencegah browser melompat ke #ID di URL secara default
@@ -928,18 +927,15 @@ document.querySelectorAll('nav a.navlink').forEach(link => {
         }
     });
 });
-/* END OF NAVIGATION FIX */
 
   /* === FUNGSI QR CODE ROUTING === */
 
-// Fungsi baru untuk menangani ID di URL (yang akan diakses Kode QR)
 function handleHashRoute() {
     // Pastikan modal tertutup sebelum memproses rute baru
     modal.style.display = 'none'; 
     
     const hash = window.location.hash; // Misal: #msds/naoh
-    
-    // Cek apakah URL hash memiliki format rute MSDS yang kita inginkan
+   
     if (hash.startsWith('#msds/')) {
         // Mendapatkan ID bahan kimia dari hash, misal 'naoh'
         const chemicalId = hash.substring(hash.indexOf('/') + 1); 
@@ -997,29 +993,30 @@ function renderPiktogramAndTips(){
 
 /* init app */
 function init(){
-  // if you want remote JSON, replace with fetch('data/msds.json').then(r=>r.json()).then(d=>{DATA=d; ...})
-  renderGrid(DATA);
-  const tests=getAllTests(DATA);
-  renderTests(tests);
-  renderGHS();
-  renderAPD();
-  fillTestFilter();
-  renderPiktogramAndTips();
-  showSection('home');
+    // 1. Render semua tampilan (GRID, TESTS, GHS, APD)
+    renderGrid(DATA);
+    const tests=getAllTests(DATA);
+    renderTests(tests);
+    renderGHS();
+    renderAPD();
+    
+    // 2. Isi Filter
+    fillTestFilter();
+    
+    // 3. Render Tips & Piktogram of the Day
+    renderPiktogramAndTips();
+    
+    // 4. LOGIKA QR CODE ROUTING (PENTING!)
+    // Cek URL hash. Jika handleHashRoute berhasil (ada ID MSDS), dia akan membuka modal.
+    if (!handleHashRoute()) {
+        // Jika handleHashRoute GAGAL (tidak ada hash MSDS), tampilkan Beranda default
+        showSection('home');
+    }
+    
+    // 5. Tambahkan event listener agar modal terbuka saat user mengubah hash di URL
+    window.addEventListener('hashchange', handleHashRoute); 
 }
-  fillTestFilter();
-  renderPiktogramAndTips(); // <--- Pastikan fungsi ini ada
-
-  // PENTING: Cek URL hash. Jika ada ID MSDS, modal akan langsung terbuka.
-  if (!handleHashRoute()) {
-    // Jika tidak ada ID MSDS di hash, tampilkan Beranda default
-    showSection('home');
-  }
-
-  // Tambahkan event listener agar modal terbuka jika user mengganti URL hash secara manual
-  window.addEventListener('hashchange', handleHashRoute); // <--- TAMBAH INI
-}
-init();
+init(); // Jalankan fungsi inisialisasi setelah didefinisikan
 
 /* optional: if you host JSON externally (e.g. data/msds.json), uncomment and use below:
 fetch('data/msds.json').then(r=>r.json()).then(j=>{
