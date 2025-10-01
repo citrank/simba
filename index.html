@@ -52,6 +52,41 @@ nav a.active{color:var(--accent)}
     transform: scale(0.98); 
     box-shadow: 0 2px 5px rgba(0, 115, 170, 0.3); 
 }
+/* Style untuk Tombol EXP Date */
+.exp-badge {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Membuat lingkaran */
+    font-size: 10px;
+    font-weight: 800;
+    color: white;
+    margin-right: 5px; /* Jarak dari tombol Lihat MSDS */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    flex-shrink: 0; /* Pastikan tidak menyusut */
+    transition: transform 0.1s ease;
+}
+
+.exp-badge:hover {
+    transform: scale(1.05);
+}
+
+/* Kriteria Warna */
+.exp-badge.color-green { background-color: #28a745; } /* > 1 Tahun */
+.exp-badge.color-yellow { background-color: #ffc107; color: #343a40; } /* > 3 Bulan */
+.exp-badge.color-red { background-color: #dc3545; } /* < 3 Bulan */
+.exp-badge.color-black { background-color: #343a40; } /* Expired */
+
+/* Pastikan Tombol EXP dan Lihat MSDS sejajar */
+.card .controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+  
 
 /* Efek tombol 'Lihat MSDS' di Top 5 List (link-btn) */
 .top-list .link-btn {
@@ -282,7 +317,8 @@ const MSDS_DATA = [
     "testing":["Amonia", "Cemaran Logam Raksa (Hg)"],
     "pdf":"assets/pdf/NaOH.PDF",
     "piktogram":"🧴 Korosif",
-    "apd":["Sarung Tangan", "Jas lab", "Masker"]
+    "apd":["Sarung Tangan", "Jas lab", "Masker"],
+    "expDate": "2026-11-30"
   },
   {
     "id":"h2so4",
@@ -291,7 +327,8 @@ const MSDS_DATA = [
     "testing":["COD", "Nitrit (NO2-N)"],
     "pdf":"assets/pdf/H2SO4.PDF",
     "piktogram":"Korosif",
-    "apd":["Goggles", "Jas Lab", "Sarung tangan tahan asam", "Respirator"]
+    "apd":["Goggles", "Jas Lab", "Sarung tangan tahan asam", "Respirator"],
+    "expDate": "2026-01-31"
   },
   {
     "id":"hgso4",
@@ -300,7 +337,8 @@ const MSDS_DATA = [
     "testing":["COD"],
     "pdf":"assets/pdf/Hg2SO4.PDF",
     "piktogram":["Toxic", "Bahaya Kesehatan", "Korosif", "Pencemar Lingkungan"],
-    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"],
+    "expDate": "2026-12-31"
   },
    {
     "id":"phenol",
@@ -309,7 +347,8 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/PHENOL.PDF",
     "piktogram":["Toxic", "Bahaya Kesehatan", "Korosif", "Pencemar Lingkungan"],
-    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"],
+     "expDate": "2027-10-31"
   },
   {
     "id":"nitropusid",
@@ -318,7 +357,8 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/NatriumNitroprusid.PDF",
     "piktogram":"Toxic",
-    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Goggles", "Sarung Tangan", "Masker", "Jas Lab"],
+    "expDate": "2027-01-31"
   },
   {
     "id":"trinatrium",
@@ -327,7 +367,8 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/Trinatirumsitrat.PDF",
     "piktogram":"-",
-    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"],
+    "expDate": "2026-02-28"
   },
   {
     "id":"hipoklorit",
@@ -336,7 +377,8 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/NatriumHipoklorit.PDF",
     "piktogram":["Toxic", "Pencemar Lingkungan"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"],
+    "expDate": "2027-11-30"
   },
   {
     "id":"amonia",
@@ -345,7 +387,8 @@ const MSDS_DATA = [
     "testing":["Amonia"],
     "pdf":"assets/pdf/stdamonia.PDF",
     "piktogram":"-",
-    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"],
+    "expDate": "2026-12-31"
   },
   {
     "id":"besi",
@@ -354,7 +397,8 @@ const MSDS_DATA = [
     "testing":["Besi (Fe)"],
     "pdf":"assets/pdf/besi.PDF",
     "piktogram":"Korosif",
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2027-01-31"
   },
   {
     "id":"arsen",
@@ -363,7 +407,8 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Arsen (As)"],
     "pdf":"assets/pdf/arsen.PDF",
     "piktogram":["Bahaya Kesehatan", "Korosif"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2027-04-30"
   },
   {
     "id":"asamnitrat",
@@ -372,7 +417,8 @@ const MSDS_DATA = [
     "testing":["Besi (Fe)", "Cemaran Logam Arsen (As)", "Cemaran Logam Cadmium (Cd)", "Cemaran Logam Nickel (Ni)", "Cemaran Logam Raksa (Hg)", "Cemaran Logam Tembaga (Cu)", "Cemaran Logam Timbal (Pb)", "Chrom (Cr)", "Mangan (Mn)", "Nitrat", "Perak (Ag)"],
     "pdf":"assets/pdf/AsamNitrat.PDF",
     "piktogram":["Korosif"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2027-01-31"
   },
   {
     "id":"cadmium",
@@ -381,7 +427,8 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Cadmium (Cd)"],
     "pdf":"assets/pdf/Cd.PDF",
     "piktogram":["Bahaya Kesehatan", "Korosif"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2026-12-31"
   },
   {
     "id":"nikel",
@@ -390,7 +437,8 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Nickel (Ni)"],
     "pdf":"assets/pdf/nickel.PDF",
     "piktogram":["Bahaya Kesehatan", "Korosif", "Pemicu Iritasi"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2027-03-31"
   },
   {
     "id":"hcl",
@@ -399,7 +447,8 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Raksa (Hg)", "Fluorida (F)", "Nitrat", "Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/HCl.PDF",
     "piktogram":["Korosif", "Pemicu Iritasi"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2028-06-30"
   },
   {
     "id":"hg",
@@ -408,7 +457,8 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Raksa (Hg)"],
     "pdf":"assets/pdf/Merkuri.PDF",
     "piktogram":["Korosif", "Bahaya Kesehatan"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2027-08-31"
   },
   {
     "id":"borohidrida",
@@ -417,7 +467,8 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Raksa (Hg)"],
     "pdf":"assets/pdf/NaBH4.PDF",
     "piktogram":["Mudah Menyala", "Bahaya Kesehatan", "Toxic", "Korosif"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"],
+    "expDate": "2027-09-30"
   },
   {
     "id":"copper",
@@ -426,7 +477,8 @@ const MSDS_DATA = [
     "testing":["Cemaran Logam Tembaga (Cu)"],
     "pdf":"assets/pdf/copper.PDF",
     "piktogram":["Korosif"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2027-10-31"
   },
   {
     "id":"lead",
@@ -436,6 +488,7 @@ const MSDS_DATA = [
     "pdf":"assets/pdf/Timbal.PDF",
     "piktogram":["Korosif", "Pemicu Iritasi"],
     "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "expDate": "2026-03-31"
   },
   {
     "id":"krom",
@@ -444,7 +497,8 @@ const MSDS_DATA = [
     "testing":["Chrom (Cr)"],
     "pdf":"assets/pdf/krom.PDF",
     "piktogram":["Korosif"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2025-10-31"
   },
   {
     "id":"peraksulfat",
@@ -453,7 +507,8 @@ const MSDS_DATA = [
     "testing":["COD"],
     "pdf":"assets/pdf/Ag2SO4.PDF",
     "piktogram":["Korosif", "Pencemar Lingkungan"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2025-12-31"
   },
   {
     "id":"kaliumdikromat",
@@ -462,7 +517,8 @@ const MSDS_DATA = [
     "testing":["COD"],
     "pdf":"assets/pdf/K2Cr2O7.PDF",
     "piktogram":["Oksidator", "Toxic", "Bahaya Kesehatan", "Korosif", "Pencemar Lingkungan"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2025-11-30"
   },
   {
     "id":"khp",
@@ -471,7 +527,8 @@ const MSDS_DATA = [
     "testing":["COD"],
     "pdf":"assets/pdf/KHP.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab"],
+    "expDate": "2026-08-31"
   },
   {
     "id":"sulfamat",
@@ -480,7 +537,8 @@ const MSDS_DATA = [
     "testing":["COD"],
     "pdf":"assets/pdf/NH2SO3H.PDF",
     "piktogram":["Pemicu Iritasi"],
-    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Masker", "Jas Lab", "Goggles"],
+    "expDate": "2027-03-31"
   },
   {
     "id":"fluorida",
@@ -489,7 +547,8 @@ const MSDS_DATA = [
     "testing":["Fluorida (F)"],
     "pdf":"assets/pdf/Fluoride.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles"],
+    "expDate": "2027-04-30"
   },
   {
     "id":"spadns",
@@ -498,7 +557,8 @@ const MSDS_DATA = [
     "testing":["Fluorida (F)"],
     "pdf":"assets/pdf/Fluoride.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles"],
+    "expDate": "2025-07-31"
   },
   {
     "id":"zirkonil",
@@ -507,7 +567,8 @@ const MSDS_DATA = [
     "testing":["Fluorida (F)"],
     "pdf":"assets/pdf/ZrOCl2.8H2O.PDF",
     "piktogram":["Korosif"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"],
+    "expDate": "2026-02-28"
   },
   {
     "id":"mangan",
@@ -516,7 +577,8 @@ const MSDS_DATA = [
     "testing":["Mangan (Mn)"],
     "pdf":"assets/pdf/Mangan.PDF",
     "piktogram":["Korosif"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"],
+    "expDate": "2027-01-31"
   },
   {
     "id":"nitrat",
@@ -525,7 +587,8 @@ const MSDS_DATA = [
     "testing":["Nitrat"],
     "pdf":"assets/pdf/stdnitrat.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles"],
+    "expDate": "2026-05-31"
   },
   {
     "id":"bariumhidroksida",
@@ -534,7 +597,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/Ba(OH)2.PDF",
     "piktogram":["Korosif", "Pemicu Iritasi"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2026-01-31"
   },
   {
     "id":"sulfanilamida",
@@ -543,7 +607,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/Sulfanilamida.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2027-01-31"
   },
   {
     "id":"kalsiumhidroksida",
@@ -552,7 +617,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/Ca(OH)2.PDF",
     "piktogram":["Korosif", "Pemicu Iritasi"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2027-06-30"
   },
   {
     "id":"amoniumbesi",
@@ -561,7 +627,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/Fe(NH4)2(SO4)2.6H2O.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2027-10-31"
   },
   {
     "id":"kaliumpermanganat",
@@ -570,7 +637,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/KMnO4.PDF",
     "piktogram":["Oksidator", "Pemicu Iritasi", "Bahaya Kesehatan", "Korosif", "Pencemar Lingkungan"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2027-03-31"
   },
   {
     "id":"mangansulfat",
@@ -579,7 +647,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/MnSO4.PDF",
     "piktogram":["Bahaya Kesehatan", "Korosif", "Pencemar Lingkungan"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2028-01-31"
   },
   {
     "id":"ned",
@@ -588,7 +657,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/NED.PDF",
     "piktogram":["Pemicu Iritasi"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2026-05-31"
   },
   {
     "id":"larutandpd",
@@ -597,7 +667,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/Larutan DPD.PDF",
     "piktogram":["Toxic", "Korosif"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2026-09-30"
   },
   {
     "id":"natriumoksalat",
@@ -606,7 +677,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/Na2C2O4.PDF",
     "piktogram":["Pemicu Iritasi"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2027-04-30"
   },
   {
     "id":"nitrit",
@@ -615,7 +687,8 @@ const MSDS_DATA = [
     "testing":["Nitrit (NO2-N)"],
     "pdf":"assets/pdf/stdnitrit.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles"],
+    "expDate": "2026-10-31"
   },
   {
     "id":"perak",
@@ -624,7 +697,8 @@ const MSDS_DATA = [
     "testing":["Perak (Ag)"],
     "pdf":"assets/pdf/perak.PDF",
     "piktogram":["Korosif", "Pencemar Lingkungan"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"],
+    "expDate": "2026-04-30"
   },
   {
     "id":"bariumklor",
@@ -633,7 +707,8 @@ const MSDS_DATA = [
     "testing":["Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/BaCl2.2H2O.PDF",
     "piktogram":["Toxic"],
-    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"]
+    "apd":["Sarung Tangan", "Jas Lab", "Goggles", "Masker"],
+    "expDate": "2026-11-30"
   },
   {
     "id":"asetat",
@@ -642,7 +717,8 @@ const MSDS_DATA = [
     "testing":["Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/CH3COOH.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker"],
+    "expDate": "2026-10-31"
   },
   {
     "id":"natriumasetat",
@@ -651,7 +727,8 @@ const MSDS_DATA = [
     "testing":["Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/CH3COONa.3H2O.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker"],
+    "expDate": "2027-02-01"
   },
   {
     "id":"kaliumnitrat",
@@ -660,7 +737,8 @@ const MSDS_DATA = [
     "testing":["Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/KNO3.PDF",
     "piktogram":["Oksidator"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2026-12-31"
   },
   {
     "id":"magnesiumklorida",
@@ -669,16 +747,28 @@ const MSDS_DATA = [
     "testing":["Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/MgCl2.6H2O.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2027-01-31"
   },
   {
     "id":"sulfat",
-    "name":"Larutan Standard Sulfat (Sodium sulfate)",
+    "name":"Larutan Standard Sulfat 1000 mg/l",
     "formula":"Na2SO4 in H2O",
+    "testing":["Sulfat secara Turbidimetri"],
+    "pdf":"assets/pdf/stdsulfat.PDF",
+    "piktogram":["-"],
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2026-09-30"
+  },
+  {
+    "id":"natriumsulfat",
+    "name":"Natrium Sulfat (Sodium sulfate)",
+    "formula":"Na2SO4",
     "testing":["Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/Na2SO4.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker", "Goggles"],
+    "expDate": "2026-11-30"
   },
   {
     "id":"nacl",
@@ -687,7 +777,8 @@ const MSDS_DATA = [
     "testing":["Sulfat secara Turbidimetri"],
     "pdf":"assets/pdf/NaCl.PDF",
     "piktogram":["-"],
-    "apd":["Sarung Tangan", "Jas Lab", "Masker"]
+    "apd":["Sarung Tangan", "Jas Lab", "Masker"],
+    "expDate": "2026-09-30"
   },
 ];
 
@@ -755,27 +846,73 @@ function getAllTests(data){
   return Array.from(s).sort();
 }
 
+/* --- FUNGSI BARU: LOGIKA PENENTUAN WARNA --- */
+function getExpColor(expDateStr) {
+    if (!expDateStr) return 'color-black'; // Jika tidak ada data, anggap expired/tidak diketahui
+
+    const today = new Date();
+    const expDate = new Date(expDateStr);
+    
+    // Perbedaan dalam milidetik
+    const diffMs = expDate - today;
+    
+    // Konversi milidetik ke hari
+    const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+    
+    // Logika penentuan warna
+    if (diffDays <= 0) {
+        return 'color-black'; // Expired
+    } else if (diffDays > 365) {
+        return 'color-green'; // Di atas 1 tahun
+    } else if (diffDays > 90) { // 3 bulan kira-kira 90 hari
+        return 'color-yellow'; // Di atas 3 bulan
+    } else {
+        return 'color-red'; // Di bawah 3 bulan (tapi belum expired)
+    }
+}
+/* ------------------------------------------------ */
+
+
 /* render cards */
 function renderGrid(data){
-  msdsGrid.innerHTML = '';
-  if(!data.length){
-    msdsGrid.innerHTML = '<div class="small">Tidak ada bahan.</div>';
-    return;
-  }
-  data.forEach(item=>{
-    const div = document.createElement('div');
-    div.className = 'card msds-card';
-    div.setAttribute('data-id', item.id);
-    div.innerHTML = `
-      <h3>${item.name}</h3>
-      <div class="small subtitle">(${item.formula || '-'})</div>
-      <div class="formula">${item.formula||''}</div>
-      <div class="tags">${item.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
-      <div style="margin-top:10px"><button class="btn-primary" data-id="${item.id}">Lihat MSDS</button></div>
-    `;
-    msdsGrid.appendChild(div);
-  });
+    msdsGrid.innerHTML = '';
+    if(!data.length){
+        msdsGrid.innerHTML = '<div class="small">Tidak ada bahan.</div>';
+        return;
+    }
+    data.forEach(item=>{
+        // Dapatkan warna EXP dari data tanggal
+        const expColorClass = getExpColor(item.expDate);
+        
+        // Buat string tanggal yang lebih mudah dibaca
+        const expDateDisplay = item.expDate ? new Date(item.expDate).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Tidak Ada Data';
+        
+        const div = document.createElement('div');
+        div.className = 'card msds-card';
+        div.setAttribute('data-id', item.id);
+        div.innerHTML = `
+            <h3>${item.name}</h3>
+            <div class="small subtitle">(${item.formula || '-'})</div>
+            <div class="formula">${item.formula||''}</div>
+            <div class="tags">${item.testing.map(t=>`<span class="badge">${t}</span>`).join(' ')}</div>
+            
+            <div class="controls">
+                <div 
+                    class="exp-badge ${expColorClass}" 
+                    title="Tanggal Kedaluwarsa: ${expDateDisplay}" 
+                    data-exp-date="${expDateDisplay}"
+                    data-id="${item.id}"
+                >
+                    EXP
+                </div>
+                
+                <button class="btn-primary" data-id="${item.id}">Lihat MSDS</button>
+            </div>
+        `;
+        msdsGrid.appendChild(div);
+    });
 }
+  
 /* render tests list as clickable cards */
 function renderTests(tests){
   testsList.innerHTML='';
@@ -896,6 +1033,19 @@ function openModal(item, isFromHash = false){
     pdfViewer.src = item.pdf; // must be path to pdf in repo
     downloadLink.href = item.pdf;
     modal.style.display = 'flex';
+  // Format tanggal expired
+    const expDateDisplay = item.expDate ? new Date(item.expDate).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Tidak Ada Data';
+
+    modalTitle.textContent = item.name;
+    // Tambahkan info EXP DATE ke metadata
+    const meta = `<div><strong>Rumus:</strong> ${item.formula||'-'}</div>
+    <div><strong>Pengujian:</strong> ${item.testing.join(', ')}</div>
+    <div><strong>Piktogram:</strong> ${item.piktogram||'-'}</div>
+    <div><strong>APD:</strong> ${ (item.apd||[]).join(', ') }</div>
+    <div><strong>Kedaluwarsa:</strong> ${expDateDisplay}</div>`; // <-- TAMBAH BARIS INI
+    
+    document.getElementById('modalMeta').innerHTML = meta;
+    // ... (kode modal lainnya) ...
 }
 
 /* close modal */
